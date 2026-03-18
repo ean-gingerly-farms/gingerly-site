@@ -1,12 +1,33 @@
 /* ==========================================================================
    CONTACT PAGE — Gingerly Farms
+   Left-aligned layout.
    Depends on: tokens.css, typography.css, layout.css, buttons.css
    ========================================================================== */
 
 .contact-hero {
-  text-align: center;
+  text-align: left;
   background-color: var(--bg-dark);
-  padding: var(--space-20) 0;
+  padding: var(--space-24) 0 var(--space-20);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40%;
+  background:
+    repeating-linear-gradient(
+      -30deg,
+      transparent,
+      transparent 22px,
+      rgba(127, 174, 155, 0.06) 22px,
+      rgba(127, 174, 155, 0.06) 23px
+    );
+  pointer-events: none;
 }
 
 .contact-hero__title {
@@ -18,7 +39,6 @@
   font-size: var(--text-lg);
   color: rgba(245, 243, 238, 0.75);
   max-width: 500px;
-  margin: 0 auto;
   line-height: var(--leading-relaxed);
 }
 
@@ -117,5 +137,9 @@
 
   .contact-info {
     order: -1;
+  }
+
+  .contact-hero {
+    padding: var(--space-20) 0;
   }
 }

@@ -1,12 +1,33 @@
 /* ==========================================================================
    PRODUCE PAGE — Gingerly Farms
+   Left-aligned layout with geo patterns.
    Depends on: tokens.css, typography.css, layout.css
    ========================================================================== */
 
 .produce-hero {
-  text-align: center;
+  text-align: left;
   background-color: var(--color-sage);
-  padding: var(--space-20) 0;
+  padding: var(--space-24) 0 var(--space-20);
+  position: relative;
+  overflow: hidden;
+}
+
+.produce-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40%;
+  background:
+    repeating-linear-gradient(
+      30deg,
+      transparent,
+      transparent 18px,
+      rgba(43, 71, 89, 0.06) 18px,
+      rgba(43, 71, 89, 0.06) 19px
+    );
+  pointer-events: none;
 }
 
 .produce-hero__title {
@@ -18,13 +39,12 @@
   font-size: var(--text-lg);
   color: rgba(43, 71, 89, 0.75);
   max-width: 540px;
-  margin: 0 auto;
   line-height: var(--leading-relaxed);
 }
 
-/* Crop cards */
+/* Crop cards — left-aligned */
 .crop-card {
-  text-align: center;
+  text-align: left;
   padding: var(--space-8);
 }
 
@@ -36,7 +56,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto var(--space-5);
+  margin: 0 0 var(--space-5);
 }
 
 .crop-card__name {
@@ -67,10 +87,51 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Geo pattern for the vision image area */
+.farm-vision__image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 25% 35%, rgba(127, 174, 155, 0.2) 0%, transparent 45%),
+    radial-gradient(circle at 75% 65%, rgba(58, 92, 111, 0.15) 0%, transparent 40%),
+    repeating-linear-gradient(
+      120deg,
+      transparent,
+      transparent 25px,
+      rgba(127, 174, 155, 0.08) 25px,
+      rgba(127, 174, 155, 0.08) 26px
+    );
+}
+
+/* Abstract vertical farm icon with CSS */
+.farm-vision__image::after {
+  content: '';
+  position: absolute;
+  width: 120px;
+  height: 160px;
+  border: 2px solid rgba(127, 174, 155, 0.3);
+  border-radius: var(--radius-md);
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 28px,
+      rgba(127, 174, 155, 0.15) 28px,
+      rgba(127, 174, 155, 0.15) 30px
+    );
 }
 
 @media (max-width: 900px) {
   .farm-vision {
     grid-template-columns: 1fr;
+  }
+
+  .produce-hero {
+    padding: var(--space-20) 0;
   }
 }

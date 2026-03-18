@@ -3,14 +3,8 @@
 <header class="site-header" role="banner">
   <nav class="nav-container" aria-label="Main navigation">
 
-    <!-- Left links -->
-    <ul class="nav-links nav-links--left">
-      <li><a href="/produce.html">What We Grow</a></li>
-      <li><a href="/about.html">Our Story</a></li>
-    </ul>
-
-    <!-- Centered logo -->
-    <a href="/" class="nav-logo" aria-label="Gingerly Farms — Home">
+    <!-- Logo + Brand Name (left) -->
+    <a href="/" class="nav-logo" aria-label="Gingerly Farms Home">
       <svg width="38" height="54" viewBox="0 0 120 168" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <!-- Bottle -->
         <path class="logo-bottle" d="M38 48 L38 28 Q38 20 46 20 L74 20 Q82 20 82 28 L82 48 Q96 56 96 72 L96 140 Q96 156 80 156 L40 156 Q24 156 24 140 L24 72 Q24 56 38 48Z" fill="none" stroke-width="5"/>
@@ -33,11 +27,15 @@
       <span class="nav-logo__text">Gingerly Farms</span>
     </a>
 
-    <!-- Right links -->
-    <ul class="nav-links nav-links--right">
-      <li><a href="/find-us.html">Partners</a></li>
-      <li><a href="/contact.html">Contact</a></li>
-    </ul>
+    <!-- Nav Links + CTA (right) -->
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="/produce.html">What We Grow</a></li>
+        <li><a href="/about.html">Our Story</a></li>
+        <li><a href="/find-us.html">Partners</a></li>
+      </ul>
+      <a href="/contact.html" class="btn btn-primary btn--sm nav-cta">Get in Touch</a>
+    </div>
 
     <!-- Mobile hamburger -->
     <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu">
@@ -53,6 +51,6 @@
     <a href="/produce.html">What We Grow</a>
     <a href="/about.html">Our Story</a>
     <a href="/find-us.html">Partners</a>
-    <a href="/contact.html">Contact</a>
+    <a href="/contact.html" class="btn btn-primary nav-mobile-cta">Get in Touch</a>
   </div>
 </header>

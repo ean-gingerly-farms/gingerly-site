@@ -1,12 +1,33 @@
 /* ==========================================================================
-   FIND US PAGE — Gingerly Farms
+   PARTNERS PAGE — Gingerly Farms
+   Left-aligned layout.
    Depends on: tokens.css, typography.css, layout.css
    ========================================================================== */
 
 .findus-hero {
-  text-align: center;
+  text-align: left;
   background-color: var(--bg-dark);
-  padding: var(--space-20) 0;
+  padding: var(--space-24) 0 var(--space-20);
+  position: relative;
+  overflow: hidden;
+}
+
+.findus-hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 40%;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(127, 174, 155, 0.06) 20px,
+      rgba(127, 174, 155, 0.06) 21px
+    );
+  pointer-events: none;
 }
 
 .findus-hero__title {
@@ -18,7 +39,6 @@
   font-size: var(--text-lg);
   color: rgba(245, 243, 238, 0.75);
   max-width: 500px;
-  margin: 0 auto;
   line-height: var(--leading-relaxed);
 }
 
@@ -54,4 +74,10 @@
 .location-card__hours {
   font-size: var(--text-sm);
   color: var(--text-body);
+}
+
+@media (max-width: 900px) {
+  .findus-hero {
+    padding: var(--space-20) 0;
+  }
 }
