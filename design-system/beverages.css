@@ -1,0 +1,68 @@
+/* ==========================================================================
+   BEVERAGES PAGE — Gingerly Farms
+   Depends on: tokens.css, typography.css, layout.css
+   ========================================================================== */
+
+.beverages-hero {
+  text-align: center;
+  background-color: var(--bg-dark);
+  padding: var(--space-20) 0;
+}
+
+.beverages-hero__title {
+  color: var(--text-on-dark);
+  margin-bottom: var(--space-4);
+}
+
+.beverages-hero__subtitle {
+  font-size: var(--text-lg);
+  color: rgba(245, 243, 238, 0.75);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: var(--leading-relaxed);
+}
+
+/* Product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-10);
+}
+
+.product-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.product-detail__image {
+  aspect-ratio: 1 / 1;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-detail__name {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  color: var(--text-heading);
+}
+
+.product-detail__description {
+  font-size: var(--text-base);
+  color: var(--text-body);
+  line-height: var(--leading-relaxed);
+}
+
+/* Ingredients callout */
+.ingredients-section {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}

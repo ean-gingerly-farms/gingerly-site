@@ -1,0 +1,158 @@
+/* ==========================================================================
+   FOOTER — Gingerly Farms
+   Clean, structured footer on Deep Coastal Blue.
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--color-deep);
+  color: rgba(245, 243, 238, 0.8);
+  padding: var(--space-16) 0 var(--space-8);
+}
+
+.footer-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-8);
+}
+
+/* ---------- Top Section: Logo + Tagline + Nav Columns ---------- */
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: var(--space-10);
+  padding-bottom: var(--space-12);
+  border-bottom: 1px solid rgba(245, 243, 238, 0.08);
+}
+
+/* Brand block */
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.footer-brand__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+}
+
+.footer-brand__logo svg {
+  height: 32px;
+  width: auto;
+}
+
+.footer-brand__name {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-bold);
+  color: var(--color-white);
+  letter-spacing: var(--tracking-tight);
+}
+
+.footer-brand__tagline {
+  font-size: var(--text-sm);
+  color: rgba(245, 243, 238, 0.5);
+  line-height: var(--leading-relaxed);
+  max-width: 320px;
+}
+
+.footer-brand__location {
+  font-size: var(--text-xs);
+  color: var(--color-sage);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  margin-top: var(--space-2);
+}
+
+/* Nav columns */
+.footer-column h4 {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(245, 243, 238, 0.35);
+  margin-bottom: var(--space-5);
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-column li {
+  margin-bottom: var(--space-3);
+}
+
+.footer-column a {
+  font-size: var(--text-sm);
+  color: rgba(245, 243, 238, 0.65);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+  color: var(--color-coral);
+}
+
+/* ---------- Bottom Bar ---------- */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-6);
+  margin-top: 0;
+}
+
+.footer-bottom__copy {
+  font-size: var(--text-xs);
+  color: rgba(245, 243, 238, 0.25);
+}
+
+.footer-bottom__links {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.footer-bottom__links a {
+  font-size: var(--text-xs);
+  color: rgba(245, 243, 238, 0.25);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-bottom__links a:hover {
+  color: rgba(245, 243, 238, 0.6);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .footer-top {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-8);
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-container {
+    padding: 0 var(--space-4);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: var(--space-3);
+    text-align: center;
+  }
+}

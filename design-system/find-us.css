@@ -1,0 +1,57 @@
+/* ==========================================================================
+   FIND US PAGE — Gingerly Farms
+   Depends on: tokens.css, typography.css, layout.css
+   ========================================================================== */
+
+.findus-hero {
+  text-align: center;
+  background-color: var(--bg-dark);
+  padding: var(--space-20) 0;
+}
+
+.findus-hero__title {
+  color: var(--text-on-dark);
+  margin-bottom: var(--space-4);
+}
+
+.findus-hero__subtitle {
+  font-size: var(--text-lg);
+  color: rgba(245, 243, 238, 0.75);
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: var(--leading-relaxed);
+}
+
+/* Location cards */
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-6);
+}
+
+.location-card {
+  padding: var(--space-6);
+}
+
+.location-card__type {
+  margin-bottom: var(--space-3);
+}
+
+.location-card__name {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  color: var(--text-heading);
+  margin-bottom: var(--space-2);
+}
+
+.location-card__address {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-3);
+}
+
+.location-card__hours {
+  font-size: var(--text-sm);
+  color: var(--text-body);
+}

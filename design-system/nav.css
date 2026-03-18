@@ -1,0 +1,257 @@
+/* ==========================================================================
+   NAVIGATION — Gingerly Farms
+   Gotham Greens-inspired: centered logo, nav links split L/R.
+   Transparent over hero, solid on scroll.
+   ========================================================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  z-index: var(--z-nav);
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+  background-color: transparent;
+}
+
+.site-header.scrolled {
+  background-color: rgba(245, 243, 238, 0.97);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(43, 71, 89, 0.08);
+}
+
+/* ---------- Grid: links-left | logo-center | links-right ---------- */
+.nav-container {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  max-width: var(--max-width-wide);
+  margin: 0 auto;
+  padding: 0 var(--space-8);
+  height: 100%;
+}
+
+/* ---------- Nav Links ---------- */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.2rem, 2.5vw, 2.5rem);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links--left {
+  justify-self: start;
+}
+
+.nav-links--right {
+  justify-self: end;
+}
+
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-white);
+  padding: var(--space-2) 0;
+  position: relative;
+  transition: color 0.25s ease;
+}
+
+.site-header.scrolled .nav-links a {
+  color: var(--color-deep);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-coral);
+  border-radius: 1px;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a[aria-current="page"]::after {
+  width: 100%;
+}
+
+.nav-links a:hover,
+.nav-links a[aria-current="page"] {
+  color: var(--color-coral);
+}
+
+.site-header.scrolled .nav-links a:hover,
+.site-header.scrolled .nav-links a[aria-current="page"] {
+  color: var(--color-coral);
+}
+
+/* ---------- On light-background pages ---------- */
+.site-header.nav--light .nav-links a {
+  color: var(--color-deep);
+}
+
+.site-header.nav--light .nav-logo__text {
+  color: var(--color-deep);
+}
+
+.site-header.nav--light .nav-toggle__bar {
+  background-color: var(--color-deep);
+}
+
+/* ---------- Centered Logo ---------- */
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  justify-self: center;
+  gap: 3px;
+}
+
+.nav-logo svg {
+  height: 38px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+
+.nav-logo:hover svg {
+  transform: scale(1.06);
+}
+
+.nav-logo__text {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-white);
+  transition: color 0.4s ease;
+}
+
+.site-header.scrolled .nav-logo__text {
+  color: var(--color-deep);
+}
+
+/* Logo SVG color transition */
+.nav-logo .logo-bottle { transition: stroke 0.4s ease; stroke: var(--color-white); }
+.nav-logo .logo-roots  { transition: stroke 0.4s ease; stroke: rgba(245,243,238,0.5); }
+.nav-logo .logo-leaves { transition: fill 0.4s ease;   fill: var(--color-white); }
+.nav-logo .logo-flower { fill: var(--color-coral); }
+
+.site-header.scrolled .nav-logo .logo-bottle { stroke: var(--color-deep); }
+.site-header.scrolled .nav-logo .logo-roots  { stroke: var(--color-sage); }
+.site-header.scrolled .nav-logo .logo-leaves { fill: var(--color-deep); }
+
+/* ---------- Hamburger ---------- */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: calc(var(--z-nav) + 1);
+}
+
+.nav-toggle__bar {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background-color: var(--color-white);
+  border-radius: 1px;
+  transition: all 0.35s ease;
+}
+
+.site-header.scrolled .nav-toggle__bar {
+  background-color: var(--color-deep);
+}
+
+.nav-toggle__bar + .nav-toggle__bar {
+  margin-top: 7px;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+  background-color: var(--color-white);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+  background-color: var(--color-white);
+}
+
+/* ---------- Mobile Fullscreen Menu ---------- */
+.nav-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-deep);
+  padding: var(--space-8);
+  overflow-y: auto;
+  z-index: calc(var(--z-nav) - 1);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.nav-mobile-menu.is-open {
+  display: flex;
+}
+
+.nav-mobile-menu a {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-white);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-mobile-menu a:hover,
+.nav-mobile-menu a[aria-current="page"] {
+  color: var(--color-coral);
+}
+
+/* ---------- Body: hero goes under transparent nav ---------- */
+.has-fixed-nav {
+  padding-top: 0;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--space-4);
+  }
+
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+
+  .site-header {
+    height: var(--nav-height-mobile);
+  }
+}

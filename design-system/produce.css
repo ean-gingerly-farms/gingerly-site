@@ -1,0 +1,76 @@
+/* ==========================================================================
+   PRODUCE PAGE — Gingerly Farms
+   Depends on: tokens.css, typography.css, layout.css
+   ========================================================================== */
+
+.produce-hero {
+  text-align: center;
+  background-color: var(--color-sage);
+  padding: var(--space-20) 0;
+}
+
+.produce-hero__title {
+  color: var(--color-deep);
+  margin-bottom: var(--space-4);
+}
+
+.produce-hero__subtitle {
+  font-size: var(--text-lg);
+  color: rgba(43, 71, 89, 0.75);
+  max-width: 540px;
+  margin: 0 auto;
+  line-height: var(--leading-relaxed);
+}
+
+/* Crop cards */
+.crop-card {
+  text-align: center;
+  padding: var(--space-8);
+}
+
+.crop-card__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: rgba(127, 174, 155, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-5);
+}
+
+.crop-card__name {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  color: var(--text-heading);
+  margin-bottom: var(--space-3);
+}
+
+.crop-card__body {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+/* Vision section */
+.farm-vision {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-10);
+  align-items: center;
+}
+
+.farm-vision__image {
+  aspect-ratio: 4 / 3;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .farm-vision {
+    grid-template-columns: 1fr;
+  }
+}

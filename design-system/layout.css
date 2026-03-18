@@ -1,0 +1,329 @@
+/* ==========================================================================
+   LAYOUT — Gingerly Farms
+   Section/container system, grids, cards, and layout primitives.
+   Depends on: tokens.css
+   ========================================================================== */
+
+/* ---------- Section System ---------- */
+.section {
+  padding: var(--space-20) 0;
+}
+
+.section--sm {
+  padding: var(--space-12) 0;
+}
+
+.section--lg {
+  padding: var(--space-24) 0;
+}
+
+.section--hero {
+  padding: var(--space-24) 0 var(--space-20);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Section background variants */
+.section--white {
+  background-color: var(--color-white);
+}
+
+.section--surface {
+  background-color: var(--bg-surface);
+}
+
+.section--ocean {
+  background-color: var(--bg-ocean);
+}
+
+.section--dark {
+  background-color: var(--bg-dark);
+}
+
+.section--sage {
+  background-color: var(--bg-sage);
+}
+
+/* ---------- Container System ---------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.container--wide {
+  max-width: var(--max-width-wide);
+}
+
+.container--narrow {
+  max-width: var(--max-width-narrow);
+}
+
+/* ---------- Grid Helpers ---------- */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.grid-2--asymmetric {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: var(--space-10);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+
+/* ---------- Flex Utilities ---------- */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-center {
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.gap-4 {
+  gap: var(--space-4);
+}
+
+.gap-6 {
+  gap: var(--space-6);
+}
+
+.gap-8 {
+  gap: var(--space-8);
+}
+
+/* ---------- Text Alignment ---------- */
+.text-center {
+  text-align: center;
+}
+
+.text-center p,
+.text-center .text-lead {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Card Component ---------- */
+.card {
+  background-color: var(--color-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  transition: box-shadow var(--ease-base), transform var(--ease-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.card--surface {
+  background-color: var(--bg-surface);
+  border-color: transparent;
+}
+
+.card--flat {
+  border: none;
+  box-shadow: none;
+}
+
+.card--flat:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+/* Card with image placeholder */
+.card__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-6);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Image placeholder icon */
+.card__image-placeholder {
+  color: var(--color-oyster);
+  opacity: 0.5;
+}
+
+.card__eyebrow {
+  margin-bottom: var(--space-2);
+}
+
+.card__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  color: var(--text-heading);
+  margin-bottom: var(--space-3);
+}
+
+.card__body {
+  font-size: var(--text-base);
+  color: var(--text-body);
+  margin-bottom: var(--space-6);
+}
+
+.card__body:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Product Card ---------- */
+.product-card {
+  text-align: center;
+}
+
+.product-card .card__image {
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-lg);
+  background-color: var(--bg-surface);
+}
+
+/* ---------- Location Card ---------- */
+.location-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.location-card__name {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  color: var(--text-heading);
+  font-weight: var(--weight-semibold);
+}
+
+.location-card__details {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: var(--leading-relaxed);
+}
+
+/* ---------- Callout / Quote Block ---------- */
+.callout {
+  border-left: 3px solid var(--color-coral);
+  padding: var(--space-6) var(--space-8);
+  background-color: rgba(255, 106, 92, 0.04);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.callout p {
+  font-size: var(--text-md);
+  font-style: italic;
+  color: var(--text-heading);
+}
+
+/* ---------- Divider ---------- */
+.divider {
+  border: none;
+  height: 1px;
+  background-color: var(--border-light);
+  margin: var(--space-12) 0;
+}
+
+/* ---------- Spacing Utilities ---------- */
+.mb-0 { margin-bottom: 0; }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+.mb-12 { margin-bottom: var(--space-12); }
+.mb-16 { margin-bottom: var(--space-16); }
+
+/* ---------- Image Placeholder ---------- */
+.image-placeholder {
+  width: 100%;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.image-placeholder--hero {
+  aspect-ratio: 16 / 7;
+}
+
+.image-placeholder--square {
+  aspect-ratio: 1 / 1;
+}
+
+.image-placeholder--landscape {
+  aspect-ratio: 4 / 3;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-2--asymmetric {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .section--hero {
+    min-height: auto;
+    padding: var(--space-16) 0 var(--space-12);
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: var(--space-12) 0;
+  }
+
+  .section--lg {
+    padding: var(--space-16) 0;
+  }
+
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 0 var(--space-4);
+  }
+}

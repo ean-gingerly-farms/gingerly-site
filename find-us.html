@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Find Us — Gingerly Farms</title>
+  <meta name="description" content="Find Gingerly Farms ginger beer, ginger seltzer, and fresh produce at retailers, restaurants, and farmers markets in Charleston, SC." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://gingerlyfarms.com/find-us.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gingerly Farms" />
+  <meta property="og:title" content="Find Us — Gingerly Farms" />
+  <meta property="og:description" content="Find our beverages and produce at retailers, restaurants, and farmers markets in Charleston." />
+  <meta property="og:url" content="https://gingerlyfarms.com/find-us.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/design-system/tokens.css" />
+  <link rel="stylesheet" href="/design-system/typography.css" />
+  <link rel="stylesheet" href="/design-system/buttons.css" />
+  <link rel="stylesheet" href="/design-system/nav.css" />
+  <link rel="stylesheet" href="/design-system/footer.css" />
+  <link rel="stylesheet" href="/design-system/layout.css" />
+  <link rel="stylesheet" href="/design-system/find-us.css" />
+</head>
+<body class="has-fixed-nav">
+
+  <div id="nav-placeholder"></div>
+
+  <main id="main-content" class="page-content" tabindex="-1">
+
+    <!-- Hero -->
+    <section class="findus-hero on-dark">
+      <div class="container">
+        <p class="eyebrow mb-6">Find Us</p>
+        <h1 class="findus-hero__title">Where to Find Us</h1>
+        <p class="findus-hero__subtitle">
+          Our beverages and produce are available at select locations across the Charleston area.
+        </p>
+      </div>
+    </section>
+
+    <!-- Farmers Markets -->
+    <section class="section section--white">
+      <div class="container">
+        <p class="eyebrow mb-4">Farmers Markets</p>
+        <h2 class="section-title has-rule mb-8">Weekly Markets</h2>
+
+        <div class="location-grid">
+          <div class="card location-card">
+            <p class="eyebrow location-card__type">Farmers Market</p>
+            <h3 class="location-card__name">Charleston Farmers Market</h3>
+            <p class="location-card__address">Marion Square, Charleston, SC</p>
+            <p class="location-card__hours">Saturdays, 8am - 2pm (Seasonal)</p>
+          </div>
+
+          <!-- Add more market cards as locations are confirmed -->
+          <div class="card location-card" style="border-style: dashed; opacity: 0.6;">
+            <p class="eyebrow location-card__type">Coming Soon</p>
+            <h3 class="location-card__name">More Locations</h3>
+            <p class="location-card__address">We're expanding across the Lowcountry.</p>
+            <p class="location-card__hours">Stay tuned for updates.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Retail / Restaurants -->
+    <section class="section section--surface">
+      <div class="container">
+        <p class="eyebrow mb-4">Retail &amp; Restaurants</p>
+        <h2 class="section-title has-rule mb-8">Local Partners</h2>
+
+        <div class="location-grid">
+          <div class="card location-card" style="border-style: dashed; opacity: 0.6;">
+            <p class="eyebrow location-card__type">Coming Soon</p>
+            <h3 class="location-card__name">Retail Partners</h3>
+            <p class="location-card__address">
+              We're building relationships with local retailers and restaurants.
+              Interested in carrying Gingerly Farms?
+            </p>
+            <a href="/contact.html" class="btn btn-ghost btn--sm" style="margin-top: var(--space-4);">Wholesale Inquiry</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Can't Find Us? -->
+    <section class="section section--white">
+      <div class="container text-center">
+        <h2 class="section-title has-rule" style="display:inline-block;">Want Us Near You?</h2>
+        <p class="text-lead" style="margin: var(--space-6) auto var(--space-8);">
+          Tell us where you'd like to see Gingerly Farms products.
+          We're always looking for new retail and restaurant partners.
+        </p>
+        <a href="/contact.html" class="btn btn-primary btn-arrow">Get in Touch</a>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    function loadPartial(url, targetId) {
+      fetch(url).then(function(r) { return r.text(); }).then(function(html) {
+        document.getElementById(targetId).innerHTML = html;
+        if (targetId === 'nav-placeholder') initNav();
+      });
+    }
+    loadPartial('/design-system/nav.html', 'nav-placeholder');
+    loadPartial('/design-system/footer.html', 'footer-placeholder');
+
+    function initNav() {
+      var path = window.location.pathname;
+      document.querySelectorAll('.nav-links a, .nav-mobile-menu a:not(.btn)').forEach(function(link) {
+        if (link.getAttribute('href') === path) link.setAttribute('aria-current', 'page');
+      });
+      var toggle = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!isOpen));
+          menu.classList.toggle('is-open');
+          document.body.style.overflow = isOpen ? '' : 'hidden';
+        });
+      }
+      var header = document.querySelector('.site-header');
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            if (header) header.classList.toggle('scrolled', window.scrollY > 10);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    }
+  </script>
+</body>
+</html>
