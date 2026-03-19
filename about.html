@@ -36,6 +36,12 @@
 
     <!-- Hero -->
     <section class="about-hero on-dark">
+      <div class="page-hero__bg">
+        <img src="/assets/images/shrimp-boat-side.jpg"
+             alt="Charleston shrimp trawler on the waterway"
+             width="1600" height="900" loading="eager"
+             onerror="this.parentElement.remove();" />
+      </div>
       <div class="container">
         <p class="eyebrow mb-6">Our Story</p>
         <h1 class="about-hero__title">Two Founders. One Farm.</h1>
@@ -84,11 +90,13 @@
           <h2 class="section-title has-rule">Meet the Founders</h2>
         </div>
 
-        <!-- Team photo -->
-        <div class="team-photo mb-12">
+        <!-- Team photo — hidden until image loads -->
+        <div class="team-photo mb-12" id="team-photo" style="display:none;">
           <img src="/assets/images/founders-oyster-beds.jpg"
                alt="Fulton and Ean, co-founders of Gingerly Farms, at the oyster beds"
-               width="1200" height="600" loading="lazy" />
+               width="1200" height="600" loading="lazy"
+               onload="document.getElementById('team-photo').style.display='';"
+               onerror="this.closest('.team-photo').remove();" />
         </div>
 
         <div class="founders-grid">

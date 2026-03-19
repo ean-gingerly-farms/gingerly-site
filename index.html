@@ -59,13 +59,15 @@
   <!-- ========== MAIN CONTENT ========== -->
   <main id="main-content" class="page-content" tabindex="-1">
 
-    <!-- Hero -->
-    <section class="hero on-dark">
-      <div class="hero__bg">
+    <!-- Hero — falls back to geo pattern if image is missing -->
+    <section class="hero hero--no-image on-dark" id="hero">
+      <div class="hero__bg" id="hero-bg" style="display:none;">
         <img src="/assets/images/ravenel-bridge-night.jpg"
              alt="Ravenel Bridge over Charleston Harbor at night"
              width="1600" height="900"
-             loading="eager" />
+             loading="eager"
+             onload="document.getElementById('hero').classList.remove('hero--no-image');this.parentElement.style.display='';"
+             onerror="this.parentElement.remove();" />
       </div>
       <div class="container hero__content">
         <p class="hero__eyebrow">Charleston, SC</p>
@@ -168,28 +170,36 @@
       </div>
     </section>
 
-    <!-- Lifestyle Image Strip -->
-    <section class="lifestyle-strip" aria-label="Coastal Charleston lifestyle photos">
+    <!-- Lifestyle Image Strip — hidden until images load -->
+    <section class="lifestyle-strip" id="lifestyle-strip" aria-label="Coastal Charleston lifestyle photos" style="display:none;">
       <div class="lifestyle-strip__grid">
         <div class="lifestyle-strip__item">
-          <img src="/assets/images/oyster-beds-lowtide.jpg"
-               alt="Oyster beds at low tide in Charleston"
-               width="600" height="400" loading="lazy" />
+          <img src="/assets/images/shrimp-boat-sunset.jpg"
+               alt="Shrimp boat at sunset on Charleston harbor with seabirds"
+               width="600" height="400" loading="lazy"
+               onload="document.getElementById('lifestyle-strip').style.display='';"
+               onerror="this.closest('.lifestyle-strip__item').remove();" />
         </div>
         <div class="lifestyle-strip__item">
-          <img src="/assets/images/crabbing-boat.jpg"
-               alt="Crabbing boat on Charleston waterway"
-               width="600" height="400" loading="lazy" />
+          <img src="/assets/images/shrimp-boat-dock.jpg"
+               alt="Shrimp boat returning to dock at dusk in Charleston"
+               width="600" height="400" loading="lazy"
+               onload="document.getElementById('lifestyle-strip').style.display='';"
+               onerror="this.closest('.lifestyle-strip__item').remove();" />
         </div>
         <div class="lifestyle-strip__item">
-          <img src="/assets/images/fishing-sunset-silhouette.jpg"
-               alt="Fishing at sunset silhouette on the coast"
-               width="600" height="400" loading="lazy" />
+          <img src="/assets/images/shrimp-boat-side.jpg"
+               alt="Shrimp trawler with nets on Charleston waterway"
+               width="600" height="400" loading="lazy"
+               onload="document.getElementById('lifestyle-strip').style.display='';"
+               onerror="this.closest('.lifestyle-strip__item').remove();" />
         </div>
         <div class="lifestyle-strip__item">
-          <img src="/assets/images/cast-net-night.jpg"
-               alt="Casting a net at night on the Charleston coast"
-               width="600" height="400" loading="lazy" />
+          <img src="/assets/images/shrimp-boat-open.jpg"
+               alt="Shrimp boat heading out to open water at golden hour"
+               width="600" height="400" loading="lazy"
+               onload="document.getElementById('lifestyle-strip').style.display='';"
+               onerror="this.closest('.lifestyle-strip__item').remove();" />
         </div>
       </div>
     </section>
@@ -207,10 +217,11 @@
           </p>
           <a href="/about.html" class="btn btn-ghost btn-arrow">Meet the Team</a>
         </div>
-        <div class="about-teaser__photo">
+        <div class="about-teaser__photo" id="about-teaser-photo">
           <img src="/assets/images/founders-oyster-beds.jpg"
                alt="Gingerly Farms founders at the oyster beds"
-               width="600" height="500" loading="lazy" />
+               width="600" height="500" loading="lazy"
+               onerror="this.closest('.about-teaser__photo').remove();document.querySelector('.about-teaser--with-image').classList.remove('about-teaser--with-image');" />
         </div>
       </div>
     </section>
