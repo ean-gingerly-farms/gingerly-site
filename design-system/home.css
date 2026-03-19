@@ -13,6 +13,68 @@
   overflow: hidden;
 }
 
+/* Background image layer */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+/* Gradient overlay on hero image — dark left for text readability */
+.hero__bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(43, 71, 89, 0.92) 0%,
+    rgba(43, 71, 89, 0.75) 40%,
+    rgba(43, 71, 89, 0.35) 70%,
+    rgba(43, 71, 89, 0.15) 100%
+  );
+}
+
+/* Fallback when no hero image — show geo pattern */
+.hero--no-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  background-image:
+    radial-gradient(circle at 70% 30%, rgba(127, 174, 155, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 90% 70%, rgba(58, 92, 111, 0.3) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.hero--no-image::after {
+  content: '';
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  width: 400px;
+  height: 400px;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      rgba(127, 174, 155, 0.15) 20px,
+      rgba(127, 174, 155, 0.15) 21px
+    );
+  border-radius: var(--radius-lg);
+  pointer-events: none;
+  opacity: 0.8;
+}
+
 .hero__content {
   position: relative;
   z-index: 1;
@@ -48,40 +110,6 @@
   display: flex;
   gap: var(--space-4);
   flex-wrap: wrap;
-}
-
-/* Geo pattern behind hero */
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 50%;
-  background-image:
-    radial-gradient(circle at 70% 30%, rgba(127, 174, 155, 0.25) 0%, transparent 50%),
-    radial-gradient(circle at 90% 70%, rgba(58, 92, 111, 0.3) 0%, transparent 40%);
-  pointer-events: none;
-}
-
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 10%;
-  right: 5%;
-  width: 400px;
-  height: 400px;
-  background:
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 20px,
-      rgba(127, 174, 155, 0.15) 20px,
-      rgba(127, 174, 155, 0.15) 21px
-    );
-  border-radius: var(--radius-lg);
-  pointer-events: none;
-  opacity: 0.8;
 }
 
 /* ---------- Intro / Brand Statement ---------- */
@@ -203,10 +231,49 @@
   line-height: var(--leading-relaxed);
 }
 
+/* ---------- Lifestyle Image Strip ---------- */
+.lifestyle-strip {
+  padding: 0;
+  overflow: hidden;
+}
+
+.lifestyle-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.lifestyle-strip__item {
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+}
+
+.lifestyle-strip__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.lifestyle-strip__item:hover img {
+  transform: scale(1.06);
+}
+
 /* ---------- About Teaser ---------- */
 .about-teaser {
   text-align: left;
-  max-width: 640px;
+}
+
+.about-teaser--with-image {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.about-teaser__text {
+  max-width: 560px;
 }
 
 .about-teaser__heading {
@@ -215,10 +282,23 @@
 
 .about-teaser__body {
   font-size: var(--text-md);
-  color: var(--text-body);
-  max-width: 600px;
+  color: rgba(245, 243, 238, 0.75);
+  max-width: 560px;
   margin: 0 0 var(--space-8);
   line-height: var(--leading-relaxed);
+}
+
+.about-teaser__photo {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.about-teaser__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius-lg);
 }
 
 /* ---------- Responsive ---------- */
@@ -226,6 +306,15 @@
   .process-steps {
     grid-template-columns: 1fr;
     gap: var(--space-10);
+  }
+
+  .about-teaser--with-image {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .lifestyle-strip__grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
