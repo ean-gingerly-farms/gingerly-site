@@ -24,7 +24,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%; /* Show bridge towers/cables, not just water */
+  object-position: center center;
   image-rendering: auto; /* Ensure browser uses best quality scaling */
 }
 
@@ -33,13 +33,19 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(43, 71, 89, 0.88) 0%,
-    rgba(43, 71, 89, 0.70) 35%,
-    rgba(43, 71, 89, 0.30) 65%,
-    rgba(43, 71, 89, 0.08) 100%
-  );
+  background:
+    linear-gradient(
+      to right,
+      rgba(20, 30, 45, 0.82) 0%,
+      rgba(20, 30, 45, 0.60) 30%,
+      rgba(20, 30, 45, 0.20) 60%,
+      transparent 100%
+    ),
+    linear-gradient(
+      to top,
+      rgba(20, 30, 45, 0.30) 0%,
+      transparent 40%
+    );
 }
 
 /* Fallback when no hero image — show geo pattern */
@@ -97,14 +103,16 @@
   font-size: var(--text-hero);
   color: var(--text-on-dark);
   margin-bottom: var(--space-6);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
 }
 
 .hero__subtitle {
   font-size: var(--text-lg);
-  color: rgba(245, 243, 238, 0.75);
+  color: rgba(245, 243, 238, 0.85);
   max-width: 560px;
   margin: 0 0 var(--space-10);
   line-height: var(--leading-relaxed);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .hero__actions {

@@ -62,12 +62,15 @@
     <!-- Hero — falls back to geo pattern if image is missing -->
     <section class="hero hero--no-image on-dark" id="hero">
       <div class="hero__bg" id="hero-bg" style="display:none;">
-        <img src="/assets/images/ravenel-bridge-night.jpg"
-             alt="Ravenel Bridge over Charleston Harbor at night"
-             width="1600" height="900"
-             loading="eager"
-             onload="document.getElementById('hero').classList.remove('hero--no-image');this.parentElement.style.display='';"
-             onerror="this.parentElement.remove();" />
+        <picture>
+          <source media="(max-width: 768px)" srcset="/assets/images/charleston-bridge-hero-mobile.jpg" />
+          <img src="/assets/images/charleston-bridge-hero.jpg"
+               alt="Ravenel Bridge over Charleston Harbor at dusk with container ship passing beneath"
+               width="2400" height="1050"
+               loading="eager"
+               onload="document.getElementById('hero').classList.remove('hero--no-image');this.parentElement.style.display='';"
+               onerror="this.parentElement.remove();" />
+        </picture>
       </div>
       <div class="container hero__content">
         <p class="hero__eyebrow">Charleston, SC</p>
