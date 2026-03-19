@@ -1,6 +1,6 @@
 /* ==========================================================================
    NAVIGATION — Gingerly Farms
-   Logo left, links right. Transparent over hero, solid on scroll.
+   Logo left, links right. Always white background.
    ========================================================================== */
 
 .site-header {
@@ -10,15 +10,13 @@
   right: 0;
   height: var(--nav-height);
   z-index: var(--z-nav);
-  transition: background-color 0.4s ease, box-shadow 0.4s ease;
-  background-color: transparent;
+  background-color: var(--color-white);
+  box-shadow: 0 1px 0 rgba(43, 71, 89, 0.08);
+  transition: box-shadow 0.3s ease;
 }
 
 .site-header.scrolled {
-  background-color: rgba(245, 243, 238, 0.97);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 1px 0 rgba(43, 71, 89, 0.08);
+  box-shadow: 0 2px 12px rgba(43, 71, 89, 0.1);
 }
 
 /* ---------- Flexbox: logo-left | links-right ---------- */
@@ -56,14 +54,10 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--color-white);
+  color: var(--color-deep);
   padding: var(--space-2) 0;
   position: relative;
   transition: color 0.25s ease;
-}
-
-.site-header.scrolled .nav-links a {
-  color: var(--color-deep);
 }
 
 .nav-links a::after {
@@ -86,24 +80,6 @@
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
   color: var(--color-coral);
-}
-
-.site-header.scrolled .nav-links a:hover,
-.site-header.scrolled .nav-links a[aria-current="page"] {
-  color: var(--color-coral);
-}
-
-/* ---------- On light-background pages ---------- */
-.site-header.nav--light .nav-links a {
-  color: var(--color-deep);
-}
-
-.site-header.nav--light .nav-logo__text {
-  color: var(--color-deep);
-}
-
-.site-header.nav--light .nav-toggle__bar {
-  background-color: var(--color-deep);
 }
 
 /* ---------- Logo (left-aligned, horizontal) ---------- */
@@ -131,13 +107,8 @@
   font-weight: var(--weight-bold);
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-white);
-  transition: color 0.4s ease;
-  white-space: nowrap;
-}
-
-.site-header.scrolled .nav-logo__text {
   color: var(--color-deep);
+  white-space: nowrap;
 }
 
 /* ---------- Nav CTA Button ---------- */
@@ -148,17 +119,17 @@
   padding: var(--space-2) var(--space-5);
   border-radius: var(--radius-pill);
   white-space: nowrap;
-  transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+  background-color: var(--color-ocean);
+  color: var(--color-white);
+  border-color: var(--color-ocean);
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
 }
 
 .nav-cta:hover {
-  box-shadow: var(--shadow-md);
-}
-
-/* On scroll, keep the CTA prominent */
-.site-header.scrolled .nav-cta {
-  background-color: var(--color-ocean);
+  background-color: var(--color-coral);
+  border-color: var(--color-coral);
   color: var(--color-white);
+  box-shadow: var(--shadow-md);
 }
 
 /* Mobile CTA */
@@ -169,15 +140,11 @@
   border-radius: var(--radius-pill);
 }
 
-/* Logo SVG color transition */
-.nav-logo .logo-bottle { transition: stroke 0.4s ease; stroke: var(--color-white); }
-.nav-logo .logo-roots  { transition: stroke 0.4s ease; stroke: rgba(245,243,238,0.5); }
-.nav-logo .logo-leaves { transition: fill 0.4s ease;   fill: var(--color-white); }
+/* Logo SVG: always dark colors */
+.nav-logo .logo-bottle { stroke: var(--color-deep); }
+.nav-logo .logo-roots  { stroke: var(--color-sage); }
+.nav-logo .logo-leaves { fill: var(--color-deep); }
 .nav-logo .logo-flower { fill: var(--color-coral); }
-
-.site-header.scrolled .nav-logo .logo-bottle { stroke: var(--color-deep); }
-.site-header.scrolled .nav-logo .logo-roots  { stroke: var(--color-sage); }
-.site-header.scrolled .nav-logo .logo-leaves { fill: var(--color-deep); }
 
 /* ---------- Hamburger ---------- */
 .nav-toggle {
@@ -198,13 +165,9 @@
   display: block;
   width: 26px;
   height: 2px;
-  background-color: var(--color-white);
+  background-color: var(--color-deep);
   border-radius: 1px;
   transition: all 0.35s ease;
-}
-
-.site-header.scrolled .nav-toggle__bar {
-  background-color: var(--color-deep);
 }
 
 .nav-toggle__bar + .nav-toggle__bar {
@@ -261,9 +224,9 @@
   color: var(--color-coral);
 }
 
-/* ---------- Body: hero goes under transparent nav ---------- */
+/* ---------- Body: push content below fixed nav ---------- */
 .has-fixed-nav {
-  padding-top: 0;
+  padding-top: var(--nav-height);
 }
 
 /* ---------- Responsive ---------- */
@@ -277,5 +240,9 @@
 
   .site-header {
     height: var(--nav-height-mobile);
+  }
+
+  .has-fixed-nav {
+    padding-top: var(--nav-height-mobile);
   }
 }
