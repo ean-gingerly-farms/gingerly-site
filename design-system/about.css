@@ -24,8 +24,8 @@
       -45deg,
       transparent,
       transparent 24px,
-      rgba(127, 174, 155, 0.07) 24px,
-      rgba(127, 174, 155, 0.07) 25px
+      rgba(127, 174, 155, 0.18) 24px,
+      rgba(127, 174, 155, 0.18) 25px
     );
   pointer-events: none;
 }
@@ -73,14 +73,14 @@
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 30% 40%, rgba(127, 174, 155, 0.18) 0%, transparent 50%),
-    radial-gradient(circle at 70% 70%, rgba(58, 92, 111, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 30% 40%, rgba(127, 174, 155, 0.35) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(58, 92, 111, 0.25) 0%, transparent 40%),
     repeating-linear-gradient(
       60deg,
       transparent,
       transparent 30px,
-      rgba(127, 174, 155, 0.06) 30px,
-      rgba(127, 174, 155, 0.06) 31px
+      rgba(127, 174, 155, 0.15) 30px,
+      rgba(127, 174, 155, 0.15) 31px
     );
 }
 
