@@ -12,6 +12,11 @@
   overflow: hidden;
 }
 
+.produce-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
 .produce-hero::after {
   content: '';
   position: absolute;
@@ -24,8 +29,8 @@
       30deg,
       transparent,
       transparent 18px,
-      rgba(43, 71, 89, 0.16) 18px,
-      rgba(43, 71, 89, 0.16) 19px
+      rgba(43, 71, 89, 0.08) 18px,
+      rgba(43, 71, 89, 0.08) 19px
     );
   pointer-events: none;
 }

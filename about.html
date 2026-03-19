@@ -36,19 +36,22 @@
 
     <!-- Hero -->
     <section class="about-hero on-dark">
-      <div class="page-hero__bg">
-        <img src="/assets/images/shrimp-boat-side.jpg"
-             alt="Charleston shrimp trawler on the waterway"
-             width="1600" height="900" loading="eager"
-             onerror="this.parentElement.remove();" />
-      </div>
       <div class="container">
-        <p class="eyebrow mb-6">Our Story</p>
-        <h1 class="about-hero__title">Two Founders. One Farm.</h1>
-        <p class="about-hero__subtitle">
-          We're building a scalable hydroponic farm in Charleston,
-          growing fresh, sustainable greens for the Lowcountry.
-        </p>
+        <div class="hero-split">
+          <div class="hero-split__text">
+            <p class="eyebrow mb-6">Our Story</p>
+            <h1 class="about-hero__title">Two Founders. One Farm.</h1>
+            <p class="about-hero__subtitle">
+              We're building a scalable hydroponic farm in Charleston,
+              growing fresh, sustainable greens for the Lowcountry.
+            </p>
+          </div>
+          <div class="hero-split__card">
+            <img src="/assets/images/shrimp-boat-sunset.jpg"
+                 alt="Charleston shrimp boat at sunset with seabirds"
+                 width="800" height="600" loading="eager" />
+          </div>
+        </div>
       </div>
     </section>
 
@@ -102,15 +105,14 @@
         <div class="founders-grid">
 
           <div class="founder-card">
-            <div class="founder-card__photo pattern-portrait">
-              <svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.6;">
-                <circle cx="70" cy="50" r="28" stroke="var(--color-ocean)" stroke-width="2" fill="rgba(58,92,111,0.06)"/>
-                <path d="M25 130 C25 100 45 82 70 82 C95 82 115 100 115 130" stroke="var(--color-ocean)" stroke-width="2" fill="rgba(58,92,111,0.04)"/>
-                <circle cx="70" cy="50" r="22" stroke="var(--color-sage)" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
-                <line x1="70" y1="78" x2="70" y2="82" stroke="var(--color-sage)" stroke-width="1.5"/>
-              </svg>
+            <div class="founder-card__photo">
+              <img src="/assets/images/fulton-headshot.jpg"
+                   alt="Fulton Williams, Co-Founder of Gingerly Farms"
+                   width="400" height="500" loading="lazy"
+                   class="founder-card__img"
+                   onerror="this.remove();" />
             </div>
-            <h3 class="founder-card__name">Fulton</h3>
+            <h3 class="founder-card__name">Fulton Williams</h3>
             <p class="founder-card__role">Horticulture &amp; Growing Operations</p>
             <p class="founder-card__bio">
               Fulton runs the growing operations. From seed to harvest,

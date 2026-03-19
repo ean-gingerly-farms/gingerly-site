@@ -12,6 +12,11 @@
   overflow: hidden;
 }
 
+.contact-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
 .contact-hero::after {
   content: '';
   position: absolute;
@@ -24,8 +29,8 @@
       -30deg,
       transparent,
       transparent 22px,
-      rgba(127, 174, 155, 0.16) 22px,
-      rgba(127, 174, 155, 0.16) 23px
+      rgba(127, 174, 155, 0.08) 22px,
+      rgba(127, 174, 155, 0.08) 23px
     );
   pointer-events: none;
 }
