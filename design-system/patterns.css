@@ -1,63 +1,156 @@
 /* ==========================================================================
    GEO PATTERNS — Gingerly Farms
-   Topographical lines, triangles, oyster shells, and organic shapes.
-   Reusable decorative background patterns for sections.
+   Two-tier system:
+     Default (.pattern-*)       — faint (opacity 0.25–0.35), safe behind any content
+     Bold    (.pattern-*-bold)  — vivid (opacity 0.70–0.85), standalone/decorative only
    ========================================================================== */
 
-/* ---------- Topographical Map Lines ---------- */
-.pattern-topo {
+/* ── Shared stacking fix ─────────────────────────────────────────────────── */
+/* Pseudo-elements always sit behind text/content */
+[class*="pattern-"]::before,
+[class*="pattern-"]::after {
+  z-index: 0;
+}
+
+[class*="pattern-"] > * {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ==========================================================================
+   TOPOGRAPHICAL MAP LINES
+   ========================================================================== */
+
+.pattern-topo,
+.pattern-topo-bold {
   position: relative;
 }
 
-.pattern-topo::before {
+.pattern-topo::before,
+.pattern-topo-bold::before {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 1;
   background-image:
-    url("data:image/svg+xml,%3Csvg width='600' height='600' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 300 Q150 250 300 300 T600 300' fill='none' stroke='rgba(127,174,155,0.28)' stroke-width='1.5'/%3E%3Cpath d='M0 260 Q150 210 300 260 T600 260' fill='none' stroke='rgba(127,174,155,0.22)' stroke-width='1.5'/%3E%3Cpath d='M0 340 Q150 290 300 340 T600 340' fill='none' stroke='rgba(127,174,155,0.25)' stroke-width='1.5'/%3E%3Cpath d='M0 220 Q150 170 300 220 T600 220' fill='none' stroke='rgba(127,174,155,0.18)' stroke-width='1.5'/%3E%3Cpath d='M0 380 Q150 330 300 380 T600 380' fill='none' stroke='rgba(127,174,155,0.2)' stroke-width='1.5'/%3E%3Cpath d='M0 180 Q150 130 300 180 T600 180' fill='none' stroke='rgba(127,174,155,0.15)' stroke-width='1.5'/%3E%3Cpath d='M0 420 Q150 370 300 420 T600 420' fill='none' stroke='rgba(127,174,155,0.17)' stroke-width='1.5'/%3E%3Cpath d='M0 140 Q150 90 300 140 T600 140' fill='none' stroke='rgba(127,174,155,0.12)' stroke-width='1.5'/%3E%3Cpath d='M0 460 Q150 410 300 460 T600 460' fill='none' stroke='rgba(127,174,155,0.14)' stroke-width='1.5'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg width='600' height='600' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 300 Q150 250 300 300 T600 300' fill='none' stroke='%237FAE9B' stroke-width='1.5'/%3E%3Cpath d='M0 260 Q150 210 300 260 T600 260' fill='none' stroke='%237FAE9B' stroke-width='1.5'/%3E%3Cpath d='M0 340 Q150 290 300 340 T600 340' fill='none' stroke='%237FAE9B' stroke-width='1.5'/%3E%3Cpath d='M0 220 Q150 170 300 220 T600 220' fill='none' stroke='%237FAE9B' stroke-width='1.5'/%3E%3Cpath d='M0 380 Q150 330 300 380 T600 380' fill='none' stroke='%237FAE9B' stroke-width='1.5'/%3E%3Cpath d='M0 180 Q150 130 300 180 T600 180' fill='none' stroke='%237FAE9B' stroke-width='1.5'/%3E%3Cpath d='M0 420 Q150 370 300 420 T600 420' fill='none' stroke='%237FAE9B' stroke-width='1.5'/%3E%3Cpath d='M0 140 Q150 90 300 140 T600 140' fill='none' stroke='%237FAE9B' stroke-width='1.5'/%3E%3Cpath d='M0 460 Q150 410 300 460 T600 460' fill='none' stroke='%237FAE9B' stroke-width='1.5'/%3E%3C/svg%3E");
   background-size: 600px 600px;
 }
 
-/* ---------- Triangle Grid ---------- */
-.pattern-triangles {
+/* Faint — safe behind dense content */
+.pattern-topo::before      { opacity: 0.30; }
+/* Bold — standalone/decorative areas */
+.pattern-topo-bold::before { opacity: 0.80; }
+
+
+/* ==========================================================================
+   TRIANGLE GRID
+   ========================================================================== */
+
+.pattern-triangles,
+.pattern-triangles-bold {
   position: relative;
 }
 
-.pattern-triangles::before {
+.pattern-triangles::before,
+.pattern-triangles-bold::before {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 1;
   background-image:
-    url("data:image/svg+xml,%3Csvg width='120' height='104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='60,0 120,104 0,104' fill='none' stroke='rgba(58,92,111,0.18)' stroke-width='1'/%3E%3Cpolygon points='60,104 0,0 120,0' fill='none' stroke='rgba(127,174,155,0.14)' stroke-width='1'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg width='120' height='104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='60,0 120,104 0,104' fill='none' stroke='%233A5C6F' stroke-width='1'/%3E%3Cpolygon points='60,104 0,0 120,0' fill='none' stroke='%237FAE9B' stroke-width='1'/%3E%3C/svg%3E");
   background-size: 120px 104px;
 }
 
-/* ---------- Oyster Shell Shapes ---------- */
-.pattern-oyster {
+.pattern-triangles::before      { opacity: 0.25; }
+.pattern-triangles-bold::before { opacity: 0.75; }
+
+
+/* ==========================================================================
+   OYSTER SHELL SHAPES
+   ========================================================================== */
+
+.pattern-oyster,
+.pattern-oyster-bold {
   position: relative;
 }
 
-.pattern-oyster::before {
+.pattern-oyster::before,
+.pattern-oyster-bold::before {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 1;
   background-image:
-    url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='100' cy='100' rx='70' ry='45' fill='none' stroke='rgba(217,215,210,0.5)' stroke-width='1.2' transform='rotate(-15 100 100)'/%3E%3Cellipse cx='100' cy='100' rx='55' ry='35' fill='none' stroke='rgba(217,215,210,0.4)' stroke-width='1.2' transform='rotate(-15 100 100)'/%3E%3Cellipse cx='100' cy='100' rx='40' ry='25' fill='none' stroke='rgba(217,215,210,0.3)' stroke-width='1.2' transform='rotate(-15 100 100)'/%3E%3Cpath d='M30 100 Q100 80 170 100' fill='none' stroke='rgba(217,215,210,0.35)' stroke-width='0.8'/%3E%3Cpath d='M40 110 Q100 90 160 110' fill='none' stroke='rgba(217,215,210,0.28)' stroke-width='0.8'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='100' cy='100' rx='70' ry='45' fill='none' stroke='%23D9D7D2' stroke-width='1.2' transform='rotate(-15 100 100)'/%3E%3Cellipse cx='100' cy='100' rx='55' ry='35' fill='none' stroke='%23D9D7D2' stroke-width='1.2' transform='rotate(-15 100 100)'/%3E%3Cellipse cx='100' cy='100' rx='40' ry='25' fill='none' stroke='%23D9D7D2' stroke-width='1.2' transform='rotate(-15 100 100)'/%3E%3Cpath d='M30 100 Q100 80 170 100' fill='none' stroke='%23D9D7D2' stroke-width='0.8'/%3E%3Cpath d='M40 110 Q100 90 160 110' fill='none' stroke='%23D9D7D2' stroke-width='0.8'/%3E%3C/svg%3E");
   background-size: 200px 200px;
 }
 
-/* ---------- Diagonal Hatching ---------- */
-.pattern-hatch {
+.pattern-oyster::before      { opacity: 0.25; }
+.pattern-oyster-bold::before { opacity: 0.75; }
+
+
+/* ==========================================================================
+   WAVE LINES (coastal)
+   ========================================================================== */
+
+.pattern-waves,
+.pattern-waves-bold {
   position: relative;
 }
 
-.pattern-hatch::after {
+.pattern-waves::before,
+.pattern-waves-bold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='400' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40 Q50 10 100 40 T200 40 T300 40 T400 40' fill='none' stroke='%233A5C6F' stroke-width='1.5'/%3E%3Cpath d='M0 55 Q50 25 100 55 T200 55 T300 55 T400 55' fill='none' stroke='%237FAE9B' stroke-width='1.5'/%3E%3Cpath d='M0 70 Q50 40 100 70 T200 70 T300 70 T400 70' fill='none' stroke='%233A5C6F' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-size: 400px 80px;
+}
+
+.pattern-waves::before      { opacity: 0.30; }
+.pattern-waves-bold::before { opacity: 0.80; }
+
+
+/* ==========================================================================
+   DOT GRID
+   ========================================================================== */
+
+.pattern-dots,
+.pattern-dots-bold {
+  position: relative;
+}
+
+.pattern-dots::before,
+.pattern-dots-bold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, #7FAE9B 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+.pattern-dots::before      { opacity: 0.35; }
+.pattern-dots-bold::before { opacity: 0.82; }
+
+
+/* ==========================================================================
+   DIAGONAL HATCHING
+   ========================================================================== */
+
+.pattern-hatch,
+.pattern-hatch-bold {
+  position: relative;
+}
+
+.pattern-hatch::after,
+.pattern-hatch-bold::after {
   content: '';
   position: absolute;
   top: 0;
@@ -70,44 +163,20 @@
       45deg,
       transparent,
       transparent 20px,
-      rgba(127, 174, 155, 0.14) 20px,
-      rgba(127, 174, 155, 0.14) 21px
+      #7FAE9B 20px,
+      #7FAE9B 21px
     );
 }
 
-/* ---------- Wave Lines (coastal) ---------- */
-.pattern-waves {
-  position: relative;
-}
+.pattern-hatch::after      { opacity: 0.40; }
+.pattern-hatch-bold::after { opacity: 0.85; }
 
-.pattern-waves::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 1;
-  background-image:
-    url("data:image/svg+xml,%3Csvg width='400' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 40 Q50 10 100 40 T200 40 T300 40 T400 40' fill='none' stroke='rgba(58,92,111,0.22)' stroke-width='1.5'/%3E%3Cpath d='M0 55 Q50 25 100 55 T200 55 T300 55 T400 55' fill='none' stroke='rgba(127,174,155,0.18)' stroke-width='1.5'/%3E%3Cpath d='M0 70 Q50 40 100 70 T200 70 T300 70 T400 70' fill='none' stroke='rgba(58,92,111,0.14)' stroke-width='1.5'/%3E%3C/svg%3E");
-  background-size: 400px 80px;
-}
 
-/* ---------- Dot Grid ---------- */
-.pattern-dots {
-  position: relative;
-}
+/* ==========================================================================
+   FOUNDER / PORTRAIT PLACEHOLDER
+   Always bold — decorative gradient fill for photo placeholder areas.
+   ========================================================================== */
 
-.pattern-dots::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 1;
-  background-image:
-    radial-gradient(circle, rgba(127, 174, 155, 0.35) 1.5px, transparent 1.5px);
-  background-size: 24px 24px;
-}
-
-/* ---------- Founder Photo Pattern ---------- */
 .pattern-portrait {
   position: relative;
   overflow: hidden;
@@ -117,8 +186,9 @@
   content: '';
   position: absolute;
   inset: 0;
+  z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse at 50% 35%, rgba(127, 174, 155, 0.25) 0%, transparent 60%),
-    radial-gradient(ellipse at 50% 80%, rgba(58, 92, 111, 0.15) 0%, transparent 40%);
+    radial-gradient(ellipse at 50% 35%, rgba(127, 174, 155, 0.35) 0%, transparent 60%),
+    radial-gradient(ellipse at 50% 80%, rgba(58, 92, 111, 0.25) 0%, transparent 40%);
 }
