@@ -91,13 +91,14 @@
   gap: var(--space-3);
 }
 
-.nav-logo svg {
+.nav-logo__icon {
   height: 36px;
   width: auto;
   transition: transform 0.3s ease;
+  object-fit: contain;
 }
 
-.nav-logo:hover svg {
+.nav-logo:hover .nav-logo__icon {
   transform: scale(1.06);
 }
 
@@ -140,11 +141,7 @@
   border-radius: var(--radius-pill);
 }
 
-/* Logo SVG: always dark colors */
-.nav-logo .logo-bottle { stroke: var(--color-deep); }
-.nav-logo .logo-roots  { stroke: var(--color-sage); }
-.nav-logo .logo-leaves { fill: var(--color-deep); }
-.nav-logo .logo-flower { fill: var(--color-coral); }
+/* Logo image sizing */
 
 /* ---------- Hamburger ---------- */
 .nav-toggle {
