@@ -64,7 +64,7 @@
         <div class="contact-grid">
 
           <!-- Form -->
-          <form class="contact-form" action="#" method="POST">
+          <form class="contact-form" id="contact-form">
             <div class="form-group">
               <label for="inquiry-type">Inquiry Type</label>
               <select id="inquiry-type" name="inquiry_type" required>
@@ -95,6 +95,12 @@
               <button type="submit" class="btn btn-primary btn--lg">Send Message</button>
             </div>
           </form>
+
+          <!-- Success message (hidden by default) -->
+          <div id="form-success" class="contact-form" style="display:none; text-align:center; padding:3rem 1rem;">
+            <h2 style="color:var(--color-deep); margin-bottom:0.5rem;">Message Sent</h2>
+            <p style="color:var(--color-body); max-width:28rem; margin:0 auto;">Your email app should have opened with your message. If it didn't, you can reach us directly at <a href="mailto:ean@gingerlyfarms.com">ean@gingerlyfarms.com</a>.</p>
+          </div>
 
           <!-- Info Sidebar -->
           <aside class="contact-info">
@@ -162,6 +168,35 @@
         }
       }, { passive: true });
     }
+
+    /* ---------- Contact form → mailto ---------- */
+    (function() {
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        var type    = form.querySelector('#inquiry-type').value;
+        var name    = form.querySelector('#name').value.trim();
+        var email   = form.querySelector('#email').value.trim();
+        var message = form.querySelector('#message').value.trim();
+
+        var subject = encodeURIComponent('Gingerly Farms Inquiry — ' + type.charAt(0).toUpperCase() + type.slice(1));
+        var body    = encodeURIComponent(
+          'Name: ' + name + '\n' +
+          'Email: ' + email + '\n' +
+          'Inquiry Type: ' + type + '\n\n' +
+          message
+        );
+
+        window.location.href = 'mailto:ean@gingerlyfarms.com?subject=' + subject + '&body=' + body;
+
+        /* Show confirmation */
+        form.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+      });
+    })();
   </script>
 </body>
 </html>
