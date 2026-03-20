@@ -68,16 +68,17 @@
                alt="Ravenel Bridge over Charleston Harbor at dusk with container ship passing beneath"
                width="2400" height="1050"
                loading="eager"
-               onload="document.getElementById('hero').classList.remove('hero--no-image');this.parentElement.style.display='';"
-               onerror="this.parentElement.remove();" />
+               onload="document.getElementById('hero').classList.remove('hero--no-image');document.getElementById('hero-bg').style.display='';"
+               onerror="document.getElementById('hero-bg').remove();" />
         </picture>
       </div>
       <div class="container hero__content">
         <p class="hero__eyebrow">Charleston, SC</p>
         <h1 class="hero__title">Grown Local.<br>Delivered Fresh.</h1>
         <p class="hero__subtitle">
-          Hydroponic leafy greens and specialty herbs for Charleston's restaurants,
-          wholesalers, and markets. Sustainable, consistent, year-round.
+          Hydroponic leafy greens and specialty herbs proudly grown for
+          Charleston's chefs, restaurateurs, and Lowcountry neighbors.
+          Sustainable, consistent, year-round.
         </p>
         <div class="hero__actions">
           <a href="/produce.html" class="btn btn-primary btn--lg btn-arrow">What We Grow</a>
@@ -92,9 +93,10 @@
         <p class="eyebrow mb-6">What We Do</p>
         <h2 class="intro__heading section-title has-rule">Seed to Table</h2>
         <p class="intro__body" style="margin-top: var(--space-6);">
-          Gingerly Farms is a hydroponic farm specializing in petite leafy green mixes
-          and specialty herbs. We grow year-round in controlled environments,
-          delivering fresh, consistent produce to kitchens across the Lowcountry.
+          Gingerly Farms is a Charleston-born hydroponic farm specializing in petite
+          leafy green mixes and specialty herbs. We grow year-round in controlled
+          environments, delivering fresh, consistent produce to local kitchens,
+          markets, and neighbors across the Lowcountry.
         </p>
       </div>
     </section>
@@ -234,8 +236,8 @@
       <div class="container">
         <h2 class="section-title has-rule">Partner With Gingerly Farms</h2>
         <p class="text-lead" style="margin: var(--space-6) 0 var(--space-8);">
-          Supplying restaurants, wholesalers, and specialty retailers in the Charleston area.
-          Let's talk about what we can grow for you.
+          Proudly supplying Charleston's local restaurants, wholesalers, and specialty
+          retailers. Let's talk about what we can grow for you.
         </p>
         <a href="/contact.html" class="btn btn-primary btn-arrow">Wholesale Inquiry</a>
       </div>
