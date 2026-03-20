@@ -96,9 +96,10 @@
 
         <!-- Team photo — hidden until image loads -->
         <div class="team-photo mb-12" id="team-photo" style="display:none;">
-          <img src="/assets/images/founders-oyster-beds.jpg"
-               alt="Fulton and Ean, co-founders of Gingerly Farms, at the oyster beds"
-               width="1200" height="600" loading="lazy"
+          <img src="/assets/images/founders-night-fishing.jpg"
+               alt="Fulton and Ean, co-founders of Gingerly Farms, casting a net on Charleston Harbor"
+               width="800" height="775" loading="lazy"
+               style="object-position: center bottom;"
                onload="document.getElementById('team-photo').style.display='';"
                onerror="this.closest('.team-photo').remove();" />
         </div>
@@ -123,13 +124,12 @@
           </div>
 
           <div class="founder-card">
-            <div class="founder-card__photo pattern-portrait">
-              <svg width="140" height="140" viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity: 0.6;">
-                <circle cx="70" cy="50" r="28" stroke="var(--color-sage)" stroke-width="2" fill="rgba(127,174,155,0.06)"/>
-                <path d="M25 130 C25 100 45 82 70 82 C95 82 115 100 115 130" stroke="var(--color-sage)" stroke-width="2" fill="rgba(127,174,155,0.04)"/>
-                <circle cx="70" cy="50" r="22" stroke="var(--color-ocean)" stroke-width="1" stroke-dasharray="3 3" fill="none"/>
-                <line x1="70" y1="78" x2="70" y2="82" stroke="var(--color-ocean)" stroke-width="1.5"/>
-              </svg>
+            <div class="founder-card__photo">
+              <img src="/assets/images/ean-headshot.jpg"
+                   alt="Ean Lawrence, Co-Founder of Gingerly Farms"
+                   width="400" height="500" loading="lazy"
+                   class="founder-card__img"
+                   onerror="this.parentElement.classList.add('pattern-portrait');this.remove();" />
             </div>
             <h3 class="founder-card__name">Ean Lawrence</h3>
             <p class="founder-card__role">Systems, Operations &amp; Scaling</p>

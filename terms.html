@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Terms of Service | Gingerly Farms</title>
+  <meta name="description" content="Terms of service for the Gingerly Farms website. Guidelines for using our site and services." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://gingerlyfarms.com/terms.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gingerly Farms" />
+  <meta property="og:title" content="Terms of Service | Gingerly Farms" />
+  <meta property="og:description" content="Terms and conditions for using the Gingerly Farms website." />
+  <meta property="og:url" content="https://gingerlyfarms.com/terms.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/design-system/tokens.css" />
+  <link rel="stylesheet" href="/design-system/typography.css" />
+  <link rel="stylesheet" href="/design-system/buttons.css" />
+  <link rel="stylesheet" href="/design-system/nav.css" />
+  <link rel="stylesheet" href="/design-system/footer.css" />
+  <link rel="stylesheet" href="/design-system/layout.css" />
+  <link rel="stylesheet" href="/design-system/patterns.css" />
+  <link rel="stylesheet" href="/design-system/legal.css" />
+</head>
+<body class="has-fixed-nav">
+
+  <div id="nav-placeholder"></div>
+
+  <main id="main-content" class="page-content" tabindex="-1">
+
+    <section class="legal-hero on-dark">
+      <div class="container">
+        <p class="eyebrow mb-6">Legal</p>
+        <h1 class="legal-hero__title">Terms of Service</h1>
+        <p class="legal-hero__subtitle">Guidelines for using the Gingerly Farms website.</p>
+      </div>
+    </section>
+
+    <section class="legal-body">
+      <div class="container">
+
+        <h2>Acceptance of Terms</h2>
+        <p>
+          By accessing and using gingerlyfarms.com (the "Site"), you agree to these Terms of Service.
+          If you do not agree, please do not use the Site. Gingerly Farms reserves the right to update
+          these terms at any time, with changes taking effect upon posting.
+        </p>
+
+        <h2>Use of the Site</h2>
+        <p>
+          This website is provided for informational purposes about Gingerly Farms and our hydroponic
+          produce. You may browse the site, submit inquiries through our contact form, and share our
+          content with proper attribution. You may not use the site for any unlawful purpose or in a way
+          that could damage or impair the site's availability.
+        </p>
+
+        <h2>Intellectual Property</h2>
+        <p>
+          All content on this site — including text, images, logos, design elements, and code — is owned
+          by Gingerly Farms or used with permission. You may not reproduce, distribute, or create
+          derivative works from our content without written permission.
+        </p>
+
+        <h2>Product Information</h2>
+        <p>
+          We make every effort to accurately describe our produce and services. However, product
+          availability, pricing, and specifications may change without notice. Information on this site
+          does not constitute a binding offer.
+        </p>
+
+        <h2>Contact Form &amp; Communications</h2>
+        <p>
+          When you submit an inquiry through our contact form, you agree to provide accurate information.
+          We will use your submission to respond to your inquiry as described in our
+          <a href="/privacy.html">Privacy Policy</a>. We aim to respond within 48 hours on business days.
+        </p>
+
+        <h2>Third-Party Links</h2>
+        <p>
+          Our site may contain links to third-party websites. We are not responsible for the content,
+          accuracy, or practices of external sites. Visiting linked sites is at your own discretion.
+        </p>
+
+        <h2>Limitation of Liability</h2>
+        <p>
+          Gingerly Farms provides this site "as is" without warranties of any kind, express or implied.
+          We are not liable for any damages arising from your use of the site, including but not limited
+          to direct, indirect, incidental, or consequential damages.
+        </p>
+
+        <h2>Governing Law</h2>
+        <p>
+          These terms are governed by the laws of the State of South Carolina. Any disputes arising from
+          your use of this site will be resolved in the courts of Charleston County, South Carolina.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions about these terms? Reach out at
+          <a href="mailto:ean@gingerlyfarms.com">ean@gingerlyfarms.com</a>.
+        </p>
+
+        <p class="legal-effective">Effective date: March 19, 2026</p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch('/design-system/nav.html').then(r => r.text()).then(h => { document.getElementById('nav-placeholder').innerHTML = h; const s = document.createElement('script'); s.src = '/design-system/nav.js'; document.body.appendChild(s); });
+    fetch('/design-system/footer.html').then(r => r.text()).then(h => document.getElementById('footer-placeholder').innerHTML = h);
+  </script>
+</body>
+</html>

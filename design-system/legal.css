@@ -1,0 +1,68 @@
+/* ========================================
+   Legal Pages — Privacy & Terms
+   ======================================== */
+
+.legal-hero {
+  background: var(--color-ocean);
+  padding: var(--space-20) 0 var(--space-16);
+}
+
+.legal-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5vw, 3.6rem);
+  font-weight: 700;
+  color: var(--color-cream);
+  margin: 0 0 var(--space-4);
+}
+
+.legal-hero__subtitle {
+  font-size: 1.125rem;
+  color: rgba(245, 243, 238, 0.75);
+  margin: 0;
+}
+
+.legal-body {
+  padding: var(--space-16) 0 var(--space-20);
+}
+
+.legal-body .container {
+  max-width: 760px;
+}
+
+.legal-body h2 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-ocean);
+  margin: var(--space-10) 0 var(--space-4);
+}
+
+.legal-body h2:first-child {
+  margin-top: 0;
+}
+
+.legal-body p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-charcoal);
+  margin: 0 0 var(--space-4);
+}
+
+.legal-body a {
+  color: var(--color-sage-dark, #3a6b52);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.legal-body a:hover {
+  color: var(--color-ocean);
+}
+
+.legal-effective {
+  font-size: 0.875rem;
+  color: var(--color-charcoal);
+  opacity: 0.6;
+  margin-top: var(--space-12);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}

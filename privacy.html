@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Privacy Policy | Gingerly Farms</title>
+  <meta name="description" content="Privacy policy for Gingerly Farms. Learn how we handle your information when you visit our website or contact us." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://gingerlyfarms.com/privacy.html" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gingerly Farms" />
+  <meta property="og:title" content="Privacy Policy | Gingerly Farms" />
+  <meta property="og:description" content="How Gingerly Farms handles your information." />
+  <meta property="og:url" content="https://gingerlyfarms.com/privacy.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/design-system/tokens.css" />
+  <link rel="stylesheet" href="/design-system/typography.css" />
+  <link rel="stylesheet" href="/design-system/buttons.css" />
+  <link rel="stylesheet" href="/design-system/nav.css" />
+  <link rel="stylesheet" href="/design-system/footer.css" />
+  <link rel="stylesheet" href="/design-system/layout.css" />
+  <link rel="stylesheet" href="/design-system/patterns.css" />
+  <link rel="stylesheet" href="/design-system/legal.css" />
+</head>
+<body class="has-fixed-nav">
+
+  <div id="nav-placeholder"></div>
+
+  <main id="main-content" class="page-content" tabindex="-1">
+
+    <section class="legal-hero on-dark">
+      <div class="container">
+        <p class="eyebrow mb-6">Legal</p>
+        <h1 class="legal-hero__title">Privacy Policy</h1>
+        <p class="legal-hero__subtitle">How we handle your information at Gingerly Farms.</p>
+      </div>
+    </section>
+
+    <section class="legal-body">
+      <div class="container">
+
+        <h2>Overview</h2>
+        <p>
+          Gingerly Farms ("we," "us," or "our") operates the website gingerlyfarms.com.
+          This policy explains what information we collect when you visit our site or contact us,
+          and how we use it. We keep things simple because we believe your privacy matters.
+        </p>
+
+        <h2>Information We Collect</h2>
+        <p>
+          When you fill out our contact form, we collect the information you provide: your name,
+          email address, and message. We use this solely to respond to your inquiry.
+        </p>
+        <p>
+          Our website may automatically collect basic usage data such as pages visited, browser type,
+          and referring URL. This information is aggregated and not tied to your personal identity.
+        </p>
+
+        <h2>How We Use Your Information</h2>
+        <p>
+          We use the information you provide to respond to wholesale inquiries, partnership requests,
+          and general questions. We do not sell, rent, or share your personal information with third
+          parties for marketing purposes.
+        </p>
+
+        <h2>Cookies</h2>
+        <p>
+          Our website uses minimal cookies necessary for basic site functionality. We do not use
+          advertising cookies or third-party tracking tools.
+        </p>
+
+        <h2>Third-Party Services</h2>
+        <p>
+          We use Google Fonts to serve typefaces on our website. Google may collect basic usage data
+          as described in their privacy policy. We do not use any other third-party analytics or
+          advertising services.
+        </p>
+
+        <h2>Data Security</h2>
+        <p>
+          We take reasonable measures to protect the information you share with us. Our website is
+          served over HTTPS to encrypt data in transit.
+        </p>
+
+        <h2>Your Rights</h2>
+        <p>
+          You may request access to, correction of, or deletion of any personal information we hold
+          about you. To make a request, email us at
+          <a href="mailto:ean@gingerlyfarms.com">ean@gingerlyfarms.com</a>.
+        </p>
+
+        <h2>Changes to This Policy</h2>
+        <p>
+          We may update this privacy policy from time to time. Any changes will be posted on this page
+          with an updated effective date.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          If you have questions about this privacy policy, reach out to us at
+          <a href="mailto:ean@gingerlyfarms.com">ean@gingerlyfarms.com</a>.
+        </p>
+
+        <p class="legal-effective">Effective date: March 19, 2026</p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    fetch('/design-system/nav.html').then(r => r.text()).then(h => { document.getElementById('nav-placeholder').innerHTML = h; const s = document.createElement('script'); s.src = '/design-system/nav.js'; document.body.appendChild(s); });
+    fetch('/design-system/footer.html').then(r => r.text()).then(h => document.getElementById('footer-placeholder').innerHTML = h);
+  </script>
+</body>
+</html>
