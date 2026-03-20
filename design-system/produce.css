@@ -1,5 +1,5 @@
 /* ==========================================================================
-   PRODUCE PAGE — Gingerly Farms
+   PRODUCE PAGE - Gingerly Farms
    Left-aligned layout with geo patterns.
    Depends on: tokens.css, typography.css, layout.css
    ========================================================================== */
@@ -47,7 +47,7 @@
   line-height: var(--leading-relaxed);
 }
 
-/* Crop cards — left-aligned */
+/* Crop cards - left-aligned */
 .crop-card {
   text-align: left;
   padding: var(--space-8);

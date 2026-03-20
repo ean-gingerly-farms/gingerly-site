@@ -1,17 +1,17 @@
 /* ==========================================================================
-   DESIGN TOKENS — Gingerly Farms
+   DESIGN TOKENS - Gingerly Farms
    Single source of truth for all design decisions.
    Change values here; everything downstream inherits automatically.
    ========================================================================== */
 
 :root {
   /* ---------- Brand Colors ---------- */
-  --color-ocean:        #3A5C6F;   /* Ocean Harbor Blue — primary brand anchor */
-  --color-deep:         #2B4759;   /* Deep Coastal Blue — dark contrast, nav, footer */
-  --color-sage:         #7FAE9B;   /* Coastal Sage — secondary botanical tone */
-  --color-coral:        #FF6A5C;   /* Electric Coral — accent, hover states, CTA highlights */
-  --color-oyster:       #D9D7D2;   /* Oyster — neutral, section separation */
-  --color-white:        #F5F3EE;   /* Coastal White — primary background */
+  --color-ocean:        #3A5C6F;   /* Ocean Harbor Blue - primary brand anchor */
+  --color-deep:         #2B4759;   /* Deep Coastal Blue - dark contrast, nav, footer */
+  --color-sage:         #7FAE9B;   /* Coastal Sage - secondary botanical tone */
+  --color-coral:        #FF6A5C;   /* Electric Coral - accent, hover states, CTA highlights */
+  --color-oyster:       #D9D7D2;   /* Oyster - neutral, section separation */
+  --color-white:        #F5F3EE;   /* Coastal White - primary background */
 
   /* ---------- Semantic Color Aliases ---------- */
   --bg-primary:         var(--color-white);
@@ -45,7 +45,7 @@
   --font-body:          'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono:          'JetBrains Mono', 'Fira Code', monospace;
 
-  /* Type scale — fluid with clamp() */
+  /* Type scale - fluid with clamp() */
   --text-xs:            clamp(0.7rem, 0.65rem + 0.25vw, 0.75rem);     /* ~12px */
   --text-sm:            clamp(0.8rem, 0.75rem + 0.25vw, 0.875rem);    /* ~14px */
   --text-base:          clamp(0.95rem, 0.9rem + 0.25vw, 1.0625rem);   /* ~16-17px */

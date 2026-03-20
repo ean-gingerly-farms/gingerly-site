@@ -15,15 +15,15 @@
 
 ## 2. Key Patterns to Reuse
 
-- **Design tokens as CSS custom properties** in a single `tokens.css` file — colors, typography, spacing, shadows, radii, transitions, z-index, and layout breakpoints all in one place.
-- **Layered CSS load order** — tokens → typography → buttons → nav → footer → layout → [page].css. Each layer only depends on what came before it.
-- **Section/Container pattern** — every page section is `<section class="section [variant]"><div class="container">...</div></section>`. Background variants (dark, navy, surface, white) are modifier classes.
+- **Design tokens as CSS custom properties** in a single `tokens.css` file - colors, typography, spacing, shadows, radii, transitions, z-index, and layout breakpoints all in one place.
+- **Layered CSS load order** - tokens → typography → buttons → nav → footer → layout → [page].css. Each layer only depends on what came before it.
+- **Section/Container pattern** - every page section is `<section class="section [variant]"><div class="container">...</div></section>`. Background variants (dark, navy, surface, white) are modifier classes.
 - **Layout shell template** (`layout.html`) with clearly marked injection points for nav, main content, and footer. One JS block at the bottom handles all interactive behavior.
-- **Centralized nav with `aria-current="page"` detection** — JavaScript at page load sets the active state automatically based on `window.location.pathname`.
-- **Consistent SEO boilerplate** per page — title, description, canonical URL, Open Graph tags, and JSON-LD structured data. Each page customizes its own values.
-- **BEM-ish naming** — `.component`, `.component__element`, `.component--modifier`. Not strict BEM, but very consistent and readable.
-- **Mobile-first responsive strategy** — base styles are desktop, media queries at 900px, 768px, 640px, 480px scale things down progressively.
-- **No build dependencies** — zero npm, zero bundler, zero framework lock-in. You can edit any file with a text editor and deploy by copying files.
+- **Centralized nav with `aria-current="page"` detection** - JavaScript at page load sets the active state automatically based on `window.location.pathname`.
+- **Consistent SEO boilerplate** per page - title, description, canonical URL, Open Graph tags, and JSON-LD structured data. Each page customizes its own values.
+- **BEM-ish naming** - `.component`, `.component__element`, `.component--modifier`. Not strict BEM, but very consistent and readable.
+- **Mobile-first responsive strategy** - base styles are desktop, media queries at 900px, 768px, 640px, 480px scale things down progressively.
+- **No build dependencies** - zero npm, zero bundler, zero framework lock-in. You can edit any file with a text editor and deploy by copying files.
 
 ---
 
@@ -73,7 +73,7 @@ olytic-site/
     └── logos/                 # SVG + PNG logo variants
 ```
 
-**Why it works:** Flat structure with no nesting complexity. Every page is a top-level HTML file. The `design-system/` folder acts as a shared library. Blog posts live in `insights/`. Drafts use a `_placeholder-` prefix convention — simple, no CMS needed.
+**Why it works:** Flat structure with no nesting complexity. Every page is a top-level HTML file. The `design-system/` folder acts as a shared library. Blog posts live in `insights/`. Drafts use a `_placeholder-` prefix convention - simple, no CMS needed.
 
 **For Gingerly Farms:** Replicate this flat structure exactly. Your pages map cleanly:
 
@@ -110,7 +110,7 @@ gingerly-farms/
 
 **Active state handling:** JavaScript at page load compares `window.location.pathname` against each nav link's `href`. Matching links receive `aria-current="page"`, which CSS uses to apply teal color + gold underline via a pseudo-element.
 
-**Scalability assessment:** For 5-7 pages, manual copy-paste is manageable. Beyond 10 pages, it becomes a maintenance burden. The active state detection via JS is elegant and reusable — no need to manually mark active links per page.
+**Scalability assessment:** For 5-7 pages, manual copy-paste is manageable. Beyond 10 pages, it becomes a maintenance burden. The active state detection via JS is elegant and reusable - no need to manually mark active links per page.
 
 **For Gingerly Farms:** This pattern is perfect for your 6-page site. Copy the nav structure, the auto-detection script, and the mobile toggle. Your nav items would be: Home, Beverages, Produce, Find Us, About, Contact. Consider making Contact your CTA button (like Olytic does) to keep the primary nav clean.
 
@@ -150,14 +150,14 @@ gingerly-farms/
 **Approach:** Pure CSS custom properties (CSS variables). No preprocessor, no Tailwind, no CSS-in-JS. Everything flows from `tokens.css`.
 
 **Token categories:**
-- **Colors** — 7 brand colors + 3 semantic colors + background aliases + text aliases + border definitions
-- **Typography** — 2 font families, 12-step type scale (xs through hero), 5 line-heights, 5 letter-spacings, 4 font weights
-- **Spacing** — 8-point grid with 12 steps from 4px to 128px
-- **Layout** — 6 max-width breakpoints, nav heights for desktop and mobile
-- **Elevation** — 3 shadow levels (xs, sm, md) — deliberately flat per brand spec
-- **Border radius** — 4 levels (sm, md, lg, pill)
-- **Transitions** — 3 speeds (fast: 150ms, base: 250ms, slow: 400ms)
-- **Z-index** — Named stack from base (0) through toast (500)
+- **Colors** - 7 brand colors + 3 semantic colors + background aliases + text aliases + border definitions
+- **Typography** - 2 font families, 12-step type scale (xs through hero), 5 line-heights, 5 letter-spacings, 4 font weights
+- **Spacing** - 8-point grid with 12 steps from 4px to 128px
+- **Layout** - 6 max-width breakpoints, nav heights for desktop and mobile
+- **Elevation** - 3 shadow levels (xs, sm, md) - deliberately flat per brand spec
+- **Border radius** - 4 levels (sm, md, lg, pill)
+- **Transitions** - 3 speeds (fast: 150ms, base: 250ms, slow: 400ms)
+- **Z-index** - Named stack from base (0) through toast (500)
 
 **Where design decisions live:** 100% in `tokens.css`. Changing the brand is as simple as swapping color values in `:root`. The semantic aliases (e.g., `--text-body`, `--bg-dark`) mean component CSS never references raw hex values.
 
@@ -173,7 +173,7 @@ gingerly-farms/
 | `--color-surface` (#F7F7F5) | Sandy beige or cream |
 | `--color-teal` (#0D6B6E) | Your primary brand color (farm green, coastal teal, etc.) |
 
-Keep the spacing scale, type scale, and transition tokens identical — they're universal best practices.
+Keep the spacing scale, type scale, and transition tokens identical - they're universal best practices.
 
 ---
 
@@ -185,32 +185,32 @@ Keep the spacing scale, type scale, and transition tokens identical — they're 
 - Modifier: `.card--surface`, `.card--accent`, `.section--dark`, `.btn--lg`
 
 **Reusable primitives defined in `layout.css`:**
-- `.card` — bordered box with hover shadow and optional accent variants
-- `.callout` — gold left-border box for pull quotes / key insights
-- `.verdict-block` — dark full-width block for key takeaways
-- `.loop-grid` / `.loop-stage` — four-column step/process display
-- `.grid-2`, `.grid-3` — responsive grid layouts
-- `.rule-gold` — horizontal divider
+- `.card` - bordered box with hover shadow and optional accent variants
+- `.callout` - gold left-border box for pull quotes / key insights
+- `.verdict-block` - dark full-width block for key takeaways
+- `.loop-grid` / `.loop-stage` - four-column step/process display
+- `.grid-2`, `.grid-3` - responsive grid layouts
+- `.rule-gold` - horizontal divider
 
 **Reusable primitives in `typography.css`:**
-- `.section-title` / `.has-rule` — heading with gold underline accent
-- `.eyebrow` / `.label` — DM Mono uppercase micro-labels
-- `.text-lead` — large intro paragraph style
-- `.text-small`, `.text-muted` — caption styles
-- `.on-dark` — dark background text inversion helper
+- `.section-title` / `.has-rule` - heading with gold underline accent
+- `.eyebrow` / `.label` - DM Mono uppercase micro-labels
+- `.text-lead` - large intro paragraph style
+- `.text-small`, `.text-muted` - caption styles
+- `.on-dark` - dark background text inversion helper
 
 **Reusable primitives in `buttons.css`:**
-- `.btn-primary`, `.btn-secondary`, `.btn-ghost` — three tiers
-- `.btn--sm`, `.btn--lg`, `.btn--full` — size variants
-- `.btn-arrow` — trailing arrow with hover animation
-- `.btn-group` — side-by-side CTA pairs
-- `.btn-icon` — icon-only buttons (hamburger, close)
+- `.btn-primary`, `.btn-secondary`, `.btn-ghost` - three tiers
+- `.btn--sm`, `.btn--lg`, `.btn--full` - size variants
+- `.btn-arrow` - trailing arrow with hover animation
+- `.btn-group` - side-by-side CTA pairs
+- `.btn-icon` - icon-only buttons (hamburger, close)
 
 **What makes these components good:**
-1. They compose — you can combine `.card` + `.card--accent` + `.card--surface`
-2. They're context-aware — `.section--dark .callout` automatically adjusts colors
-3. They don't over-abstract — each component is a single CSS block with clear boundaries
-4. No JavaScript dependencies — all interactivity is CSS-only except the nav toggle
+1. They compose - you can combine `.card` + `.card--accent` + `.card--surface`
+2. They're context-aware - `.section--dark .callout` automatically adjusts colors
+3. They don't over-abstract - each component is a single CSS block with clear boundaries
+4. No JavaScript dependencies - all interactivity is CSS-only except the nav toggle
 
 **For Gingerly Farms:** Copy the card, callout, grid, button, and section patterns. Replace Olytic-specific components (verdict-block, loop-grid) with ones suited to your content: product cards, location cards, a farm story timeline, etc.
 
@@ -241,8 +241,8 @@ Keep the spacing scale, type scale, and transition tokens identical — they're 
 - All structured data uses `application/ld+json` script blocks in `<head>`
 
 **Supporting files:**
-- `sitemap.xml` — lists all public pages with priority and changefreq
-- `robots.txt` — simple allow-all with sitemap reference
+- `sitemap.xml` - lists all public pages with priority and changefreq
+- `robots.txt` - simple allow-all with sitemap reference
 - Canonical URLs on every page (prevents duplicate content issues)
 - Clean URL structure: `/about`, `/services`, `/insights/[slug]`
 
@@ -259,8 +259,8 @@ Keep the spacing scale, type scale, and transition tokens identical — they're 
 - `{ passive: true }` on scroll event listeners (prevents jank on mobile)
 - `requestAnimationFrame` throttling on scroll handler
 - CSS `clamp()` for fluid typography (no JS resize calculations)
-- No external JS libraries — total JS is ~80 lines inline per page
-- Minimal shadows and no gradients — fast paint
+- No external JS libraries - total JS is ~80 lines inline per page
+- Minimal shadows and no gradients - fast paint
 - SVG logos (resolution-independent, tiny file size)
 - `backdrop-filter: blur()` on nav (GPU-accelerated)
 
@@ -287,52 +287,52 @@ The zero-build-step approach is ideal for two founders. You can deploy to Netlif
 
 **Blog/Insights system:** Individual HTML files in `/insights/`. The insights index page (`insights.html`) has card markup linking to each post. Adding a new post means: (1) create a new HTML file from a post template, (2) add a card to the index page, (3) add a URL to the sitemap. Draft posts use a `_placeholder-` filename prefix.
 
-**How flexible this is:** For 5-10 pages of mostly static content, it's perfect. You never fight a CMS. The tradeoff is that content changes require editing HTML. For a farm site with seasonal produce updates, this is fine — you're not publishing daily.
+**How flexible this is:** For 5-10 pages of mostly static content, it's perfect. You never fight a CMS. The tradeoff is that content changes require editing HTML. For a farm site with seasonal produce updates, this is fine - you're not publishing daily.
 
-**Where content lives vs. presentation:** Content is tightly coupled to presentation. There's no separation of data from markup. This is intentional — it keeps the system simple and means there's no data-fetching layer to debug.
+**Where content lives vs. presentation:** Content is tightly coupled to presentation. There's no separation of data from markup. This is intentional - it keeps the system simple and means there's no data-fetching layer to debug.
 
-**For Gingerly Farms:** This approach fits your use case well. Your product pages (Beverages, Produce) can use a repeating card pattern where each product is a card with an image, name, and description. When you add a new beverage, you copy a card block and update the text. If you eventually need more dynamism (e.g., 50+ products, seasonal availability), you could move to a simple JSON data file + a tiny JS template loop — but start static.
+**For Gingerly Farms:** This approach fits your use case well. Your product pages (Beverages, Produce) can use a repeating card pattern where each product is a card with an image, name, and description. When you add a new beverage, you copy a card block and update the text. If you eventually need more dynamism (e.g., 50+ products, seasonal availability), you could move to a simple JSON data file + a tiny JS template loop - but start static.
 
 ---
 
 ## 4. What to Copy for Gingerly Farms
 
 ### Copy directly (adapt branding only):
-1. **`tokens.css` structure** — create your own with coastal palette, same categories
-2. **`typography.css`** — the base reset, heading hierarchy, clamp() fluid type, max-width on paragraphs (68ch), `.text-lead`, `.eyebrow`/`.label` patterns
-3. **`buttons.css`** — primary/ghost two-tier system is enough for a marketing site (skip secondary)
-4. **`layout.css`** — the section/container system, `.grid-2`, `.grid-3`, `.card` component, responsive breakpoints
-5. **`nav.css` + nav JS** — the entire navigation system including mobile toggle, active state detection, and scroll-aware behavior
-6. **`footer.css` + footer HTML** — the multi-column footer with newsletter form
-7. **`layout.html`** — use as your page template; copy the JS block verbatim
-8. **SEO boilerplate** — the `<head>` pattern with OG tags, canonical, JSON-LD
-9. **`sitemap.xml` + `robots.txt`** — update URLs, keep the structure
-10. **CSS load order convention** — tokens → typography → buttons → nav → footer → layout → page
+1. **`tokens.css` structure** - create your own with coastal palette, same categories
+2. **`typography.css`** - the base reset, heading hierarchy, clamp() fluid type, max-width on paragraphs (68ch), `.text-lead`, `.eyebrow`/`.label` patterns
+3. **`buttons.css`** - primary/ghost two-tier system is enough for a marketing site (skip secondary)
+4. **`layout.css`** - the section/container system, `.grid-2`, `.grid-3`, `.card` component, responsive breakpoints
+5. **`nav.css` + nav JS** - the entire navigation system including mobile toggle, active state detection, and scroll-aware behavior
+6. **`footer.css` + footer HTML** - the multi-column footer with newsletter form
+7. **`layout.html`** - use as your page template; copy the JS block verbatim
+8. **SEO boilerplate** - the `<head>` pattern with OG tags, canonical, JSON-LD
+9. **`sitemap.xml` + `robots.txt`** - update URLs, keep the structure
+10. **CSS load order convention** - tokens → typography → buttons → nav → footer → layout → page
 
 ### Adapt for Gingerly Farms specifically:
-- **Product card component** — extend `.card` with an image slot for beverage/produce photos
-- **Location card** — for the "Find Us" page, a card with map embed, address, and hours
-- **Hero image sections** — Olytic uses dark solid-color heroes; you'll want a hero with background photography (farm, products, coastal scenery)
-- **Color system** — build your coastal palette into the same token structure
-- **Font pairing** — DM Sans works for tech. For a farm brand, consider something warmer (e.g., a serif like Fraunces or Lora for headings + a clean sans like Inter or Nunito for body)
+- **Product card component** - extend `.card` with an image slot for beverage/produce photos
+- **Location card** - for the "Find Us" page, a card with map embed, address, and hours
+- **Hero image sections** - Olytic uses dark solid-color heroes; you'll want a hero with background photography (farm, products, coastal scenery)
+- **Color system** - build your coastal palette into the same token structure
+- **Font pairing** - DM Sans works for tech. For a farm brand, consider something warmer (e.g., a serif like Fraunces or Lora for headings + a clean sans like Inter or Nunito for body)
 
 ---
 
 ## 5. What NOT to Copy
 
-1. **Nav/footer HTML duplication** — every page has the full nav and footer copied in. This is the biggest maintenance pain point. For Gingerly Farms, consider using a simple JS `fetch()` to load `nav.html` and `footer.html` as includes, or use a static site generator like Eleventy (11ty) which adds partials without framework complexity.
+1. **Nav/footer HTML duplication** - every page has the full nav and footer copied in. This is the biggest maintenance pain point. For Gingerly Farms, consider using a simple JS `fetch()` to load `nav.html` and `footer.html` as includes, or use a static site generator like Eleventy (11ty) which adds partials without framework complexity.
 
-2. **Page-specific `<style>` blocks** — some pages (like `about.html`) embed styles in `<style>` tags in the `<head>` instead of using a separate CSS file. This breaks the clean separation of the design system. Always use a separate `.css` file per page.
+2. **Page-specific `<style>` blocks** - some pages (like `about.html`) embed styles in `<style>` tags in the `<head>` instead of using a separate CSS file. This breaks the clean separation of the design system. Always use a separate `.css` file per page.
 
-3. **Hardcoded relative paths for design-system** — blog posts in `/insights/` use `../design-system/tokens.css` while root pages use `design-system/tokens.css`. This works but is fragile. Use absolute paths (`/design-system/tokens.css`) everywhere for consistency.
+3. **Hardcoded relative paths for design-system** - blog posts in `/insights/` use `../design-system/tokens.css` while root pages use `design-system/tokens.css`. This works but is fragile. Use absolute paths (`/design-system/tokens.css`) everywhere for consistency.
 
-4. **Missing image optimization** — Olytic has almost no images, so this wasn't an issue. Your farm site will be image-heavy. Plan for responsive images from day one.
+4. **Missing image optimization** - Olytic has almost no images, so this wasn't an issue. Your farm site will be image-heavy. Plan for responsive images from day one.
 
-5. **The `!important` declarations** — there are a few in `footer.css` (`.footer-link--teal`). Avoid these. Structure your specificity properly instead.
+5. **The `!important` declarations** - there are a few in `footer.css` (`.footer-link--teal`). Avoid these. Structure your specificity properly instead.
 
-6. **Overly specific component names** — `.verdict-block`, `.loop-grid`, `.loop-stage` are Olytic-specific concepts. Don't cargo-cult these; create components that match your content model (product grids, farm story sections, etc.).
+6. **Overly specific component names** - `.verdict-block`, `.loop-grid`, `.loop-stage` are Olytic-specific concepts. Don't cargo-cult these; create components that match your content model (product grids, farm story sections, etc.).
 
-7. **Some residual dead code** — there are CSS classes and HTML comments for features that were removed (e.g., the roadmap badge highlighting was un-highlighted but the comment/code structure remains). Start clean.
+7. **Some residual dead code** - there are CSS classes and HTML comments for features that were removed (e.g., the roadmap badge highlighting was un-highlighted but the comment/code structure remains). Start clean.
 
 ---
 
@@ -349,4 +349,4 @@ The zero-build-step approach is ideal for two founders. You can deploy to Netlif
 - [ ] Build each page by copying the template and filling in sections
 - [ ] Add SEO boilerplate per page (title, description, canonical, OG, JSON-LD)
 - [ ] Create `sitemap.xml` and `robots.txt`
-- [ ] Set up deployment (Netlify/Cloudflare Pages — just connect your Git repo)
+- [ ] Set up deployment (Netlify/Cloudflare Pages - just connect your Git repo)

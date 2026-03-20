@@ -1,8 +1,8 @@
 /* ==========================================================================
-   GEO PATTERNS — Gingerly Farms
+   GEO PATTERNS - Gingerly Farms
    Two-tier system:
-     Default (.pattern-*)       — faint (opacity 0.25–0.35), safe behind any content
-     Bold    (.pattern-*-bold)  — vivid (opacity 0.70–0.85), standalone/decorative only
+     Default (.pattern-*)       - faint (opacity 0.25–0.35), safe behind any content
+     Bold    (.pattern-*-bold)  - vivid (opacity 0.70–0.85), standalone/decorative only
    ========================================================================== */
 
 /* ── Shared stacking fix ─────────────────────────────────────────────────── */
@@ -38,9 +38,9 @@
   background-size: 600px 600px;
 }
 
-/* Faint — barely-there texture behind content */
+/* Faint - barely-there texture behind content */
 .pattern-topo::before      { opacity: 0.12; }
-/* Bold — noticeable but never fights text */
+/* Bold - noticeable but never fights text */
 .pattern-topo-bold::before { opacity: 0.35; }
 
 
@@ -174,7 +174,7 @@
 
 /* ==========================================================================
    FOUNDER / PORTRAIT PLACEHOLDER
-   Always bold — decorative gradient fill for photo placeholder areas.
+   Always bold - decorative gradient fill for photo placeholder areas.
    ========================================================================== */
 
 .pattern-portrait {

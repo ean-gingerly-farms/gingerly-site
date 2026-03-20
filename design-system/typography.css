@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TYPOGRAPHY — Gingerly Farms
+   TYPOGRAPHY - Gingerly Farms
    Base reset, heading hierarchy, fluid type, utility classes.
    Depends on: tokens.css
    ========================================================================== */
@@ -116,7 +116,7 @@ img, picture, video, canvas, svg {
 
 /* ---------- Utility Classes ---------- */
 
-/* Eyebrow / label — all-caps micro text */
+/* Eyebrow / label - all-caps micro text */
 .eyebrow,
 .label {
   font-family: var(--font-body);
@@ -131,7 +131,7 @@ img, picture, video, canvas, svg {
   color: var(--color-coral);
 }
 
-/* Lead paragraph — large intro text */
+/* Lead paragraph - large intro text */
 .text-lead {
   font-size: var(--text-lg);
   line-height: var(--leading-relaxed);

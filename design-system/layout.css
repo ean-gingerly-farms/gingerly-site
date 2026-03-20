@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LAYOUT — Gingerly Farms
+   LAYOUT - Gingerly Farms
    Section/container system, grids, cards, and layout primitives.
    Depends on: tokens.css
    ========================================================================== */
@@ -286,7 +286,7 @@
   aspect-ratio: 4 / 3;
 }
 
-/* ---------- Inner Page Hero — Side Card Layout ---------- */
+/* ---------- Inner Page Hero - Side Card Layout ---------- */
 /* Two-column hero: text left, image card right */
 .hero-split {
   display: grid;
