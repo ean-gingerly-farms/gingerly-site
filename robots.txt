@@ -1,4 +1,38 @@
+# Gingerly Farms - Charleston, SC Hydroponic Farm
+# https://gingerlyfarms.com
+
+# Allow all crawlers
 User-agent: *
+Allow: /
+Disallow: /design-system/
+
+# Search engine crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# LLM / AI crawlers - explicitly welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Anthropic-AI
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Cohere-AI
 Allow: /
 
 Sitemap: https://gingerlyfarms.com/sitemap.xml
