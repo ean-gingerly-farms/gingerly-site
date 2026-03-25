@@ -24,11 +24,11 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: center 30%;
   image-rendering: auto; /* Ensure browser uses best quality scaling */
 }
 
-/* Gradient overlay on hero image - dark left for text readability, lighter right to show bridge */
+/* Gradient overlay on hero image - strong left for text readability, reveal image on right */
 .hero__bg::after {
   content: '';
   position: absolute;
@@ -36,15 +36,17 @@
   background:
     linear-gradient(
       to right,
-      rgba(20, 30, 45, 0.90) 0%,
-      rgba(20, 30, 45, 0.75) 35%,
-      rgba(20, 30, 45, 0.45) 65%,
-      rgba(20, 30, 45, 0.15) 100%
+      rgba(20, 30, 45, 0.88) 0%,
+      rgba(20, 30, 45, 0.72) 40%,
+      rgba(20, 30, 45, 0.35) 70%,
+      rgba(20, 30, 45, 0.10) 100%
     ),
     linear-gradient(
-      to top,
-      rgba(20, 30, 45, 0.40) 0%,
-      transparent 50%
+      to bottom,
+      rgba(20, 30, 45, 0.30) 0%,
+      transparent 40%,
+      transparent 60%,
+      rgba(20, 30, 45, 0.25) 100%
     );
 }
 
