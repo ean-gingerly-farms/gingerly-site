@@ -22,6 +22,7 @@
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Terms of Service | Gingerly Farms" />
   <meta name="twitter:description" content="Terms and conditions for using the Gingerly Farms website. Guidelines for browsing, inquiries, intellectual property, and product information." />
+  <meta name="twitter:image" content="https://gingerlyfarms.com/assets/images/og-home.jpg" />
 
   <script type="application/ld+json">
   {
@@ -152,8 +153,42 @@
   <div id="footer-placeholder"></div>
 
   <script>
-    fetch('/design-system/nav.html').then(r => r.text()).then(h => { document.getElementById('nav-placeholder').innerHTML = h; const s = document.createElement('script'); s.src = '/design-system/nav.js'; document.body.appendChild(s); });
-    fetch('/design-system/footer.html').then(r => r.text()).then(h => document.getElementById('footer-placeholder').innerHTML = h);
+    function loadPartial(url, targetId) {
+      fetch(url).then(function(r) { return r.text(); }).then(function(html) {
+        document.getElementById(targetId).innerHTML = html;
+        if (targetId === 'nav-placeholder') initNav();
+      });
+    }
+    loadPartial('/design-system/nav.html', 'nav-placeholder');
+    loadPartial('/design-system/footer.html', 'footer-placeholder');
+
+    function initNav() {
+      var path = window.location.pathname;
+      document.querySelectorAll('.nav-links a, .nav-mobile-menu a:not(.btn)').forEach(function(link) {
+        if (link.getAttribute('href') === path) link.setAttribute('aria-current', 'page');
+      });
+      var toggle = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!isOpen));
+          menu.classList.toggle('is-open');
+          document.body.style.overflow = isOpen ? '' : 'hidden';
+        });
+      }
+      var header = document.querySelector('.site-header');
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            if (header) header.classList.toggle('scrolled', window.scrollY > 10);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    }
   </script>
 </body>
 </html>
