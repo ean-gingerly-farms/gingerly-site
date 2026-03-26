@@ -1,0 +1,19 @@
+# macOS
+.DS_Store
+
+# Editor files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Environment / secrets (should never be committed)
+.env
+.env.*
+
+# Node (in case you ever add a build tool)
+node_modules/
+
+# Netlify
+.netlify/
