@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta name="theme-color" content="#2B4759" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V69H5SY1FS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V69H5SY1FS');
+  </script>
+
+  <title>Page Not Found | Gingerly Farms</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Head back to Gingerly Farms to explore our hydroponic greens and herbs." />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/design-system/tokens.css" />
+  <link rel="stylesheet" href="/design-system/typography.css" />
+  <link rel="stylesheet" href="/design-system/buttons.css" />
+  <link rel="stylesheet" href="/design-system/nav.css" />
+  <link rel="stylesheet" href="/design-system/footer.css" />
+  <link rel="stylesheet" href="/design-system/layout.css" />
+  <link rel="stylesheet" href="/design-system/patterns.css" />
+
+  <style>
+    .error-page {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: var(--space-20) var(--space-6);
+    }
+    .error-page__code {
+      font-family: var(--font-heading);
+      font-size: clamp(4rem, 10vw, 8rem);
+      font-weight: 700;
+      color: var(--color-sage);
+      line-height: 1;
+      margin-bottom: var(--space-4);
+      letter-spacing: -0.03em;
+    }
+    .error-page__title {
+      font-family: var(--font-heading);
+      font-size: var(--text-2xl);
+      color: var(--text-heading);
+      margin-bottom: var(--space-4);
+    }
+    .error-page__body {
+      font-size: var(--text-base);
+      color: var(--text-muted);
+      max-width: 420px;
+      margin: 0 auto var(--space-8);
+      line-height: var(--leading-relaxed);
+    }
+  </style>
+</head>
+<body class="has-fixed-nav">
+
+  <div id="nav-placeholder"></div>
+
+  <main id="main-content" class="page-content" tabindex="-1">
+    <section class="error-page">
+      <div>
+        <p class="error-page__code">404</p>
+        <h1 class="error-page__title">Page Not Found</h1>
+        <p class="error-page__body">
+          The page you're looking for doesn't exist or has been moved.
+          Head back to the homepage or check out what we're growing.
+        </p>
+        <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+          <a href="/" class="btn btn-primary btn-arrow">Back to Home</a>
+          <a href="/produce.html" class="btn btn-ghost">What We Grow</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script>
+    function loadPartial(url, targetId) {
+      fetch(url).then(function(r) { return r.text(); }).then(function(html) {
+        document.getElementById(targetId).innerHTML = html;
+        if (targetId === 'nav-placeholder') initNav();
+      });
+    }
+    loadPartial('/design-system/nav.html', 'nav-placeholder');
+    loadPartial('/design-system/footer.html', 'footer-placeholder');
+
+    function initNav() {
+      var toggle = document.querySelector('.nav-toggle');
+      var menu = document.getElementById('mobile-menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function() {
+          var isOpen = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!isOpen));
+          menu.classList.toggle('is-open');
+          document.body.style.overflow = isOpen ? '' : 'hidden';
+        });
+      }
+      var header = document.querySelector('.site-header');
+      var ticking = false;
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            if (header) header.classList.toggle('scrolled', window.scrollY > 10);
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    }
+  </script>
+</body>
+</html>

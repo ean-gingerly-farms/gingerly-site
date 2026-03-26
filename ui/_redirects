@@ -1,0 +1,16 @@
+# HTTPS enforcement (Netlify handles this by default, but explicit is better)
+http://gingerlyfarms.com/* https://gingerlyfarms.com/:splat 301!
+http://www.gingerlyfarms.com/* https://gingerlyfarms.com/:splat 301!
+https://www.gingerlyfarms.com/* https://gingerlyfarms.com/:splat 301!
+
+# Clean URL aliases (optional convenience)
+/field-notes /field-notes.html 200
+/about /about.html 200
+/contact /contact.html 200
+/produce /produce.html 200
+/find-us /find-us.html 200
+/privacy /privacy.html 200
+/terms /terms.html 200
+
+# Custom 404 (Netlify auto-detects 404.html, but explicit is safer)
+/* /404.html 404

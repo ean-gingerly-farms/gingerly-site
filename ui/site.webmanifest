@@ -1,0 +1,21 @@
+{
+  "name": "Gingerly Farms",
+  "short_name": "Gingerly",
+  "description": "Hydroponic leafy greens and specialty herbs grown in Charleston, SC.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F5F3EE",
+  "theme_color": "#2B4759",
+  "icons": [
+    {
+      "src": "/assets/images/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

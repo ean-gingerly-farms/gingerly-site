@@ -362,3 +362,57 @@
     padding: 0 var(--space-4);
   }
 }
+
+/* ---------- Print Styles ---------- */
+@media print {
+  .site-header,
+  .nav-container,
+  .nav-mobile-menu,
+  .site-footer,
+  .skip-link,
+  .btn,
+  .hero__actions {
+    display: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+    background: #fff;
+  }
+
+  .page-content {
+    padding-top: 0 !important;
+  }
+
+  .section {
+    padding: 1rem 0;
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  a[href^="/"]::after {
+    content: " (gingerlyfarms.com" attr(href) ")";
+  }
+
+  a[href^="mailto"]::after {
+    content: " (" attr(href) ")";
+  }
+
+  img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3 {
+    page-break-after: avoid;
+    color: #000 !important;
+  }
+}

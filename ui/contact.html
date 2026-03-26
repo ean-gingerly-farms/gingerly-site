@@ -4,6 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <meta name="theme-color" content="#2B4759" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-V69H5SY1FS"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-V69H5SY1FS');
+  </script>
+
   <title>Contact | Gingerly Farms - Charleston, SC</title>
   <meta name="description" content="Contact Gingerly Farms for wholesale produce inquiries, restaurant partnerships, or general questions. Hydroponic farm in Charleston, SC." />
   <meta name="robots" content="index, follow" />
@@ -11,6 +23,7 @@
   <meta name="geo.placename" content="Charleston" />
   <link rel="canonical" href="https://gingerlyfarms.com/contact.html" />
 
+  <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Gingerly Farms" />
   <meta property="og:title" content="Contact | Gingerly Farms" />
@@ -64,8 +77,10 @@
   </script>
 
   <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -103,15 +118,15 @@
         <div class="contact-grid">
 
           <!-- Contact CTA -->
-          <div class="contact-form" style="display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:3rem 1.5rem;">
-            <h2 style="color:var(--color-deep); margin-bottom:0.75rem; font-family:var(--font-display); font-size:1.75rem;">Get in Touch</h2>
-            <p style="color:var(--color-body); max-width:28rem; margin:0 auto 2rem; line-height:1.6;">
-              Whether you're a restaurant, retailer, or just curious about our greens - we'd love to hear from you. Drop us an email and we'll get back to you within 48 hours.
+          <div class="contact-form contact-cta">
+            <h2 class="contact-cta__heading">Get in Touch</h2>
+            <p class="contact-cta__body">
+              Whether you're a restaurant, retailer, or just curious about our greens, we'd love to hear from you. Drop us an email and we'll get back to you within 48 hours.
             </p>
             <a href="mailto:contact@gingerlyfarms.com?subject=Gingerly%20Farms%20Inquiry" class="btn btn-primary btn--lg">
               Email Us
             </a>
-            <p style="color:var(--color-body); opacity:0.6; margin-top:1.25rem; font-size:0.875rem;">
+            <p class="contact-cta__email">
               contact@gingerlyfarms.com
             </p>
           </div>
