@@ -170,7 +170,9 @@
     <section class="hero hero--no-image on-dark" id="hero">
       <div class="hero__bg" id="hero-bg" style="display:none;">
         <picture>
+          <source media="(max-width: 768px)" type="image/webp" srcset="/assets/images/hero-home-mobile.webp" />
           <source media="(max-width: 768px)" srcset="/assets/images/hero-home-mobile.jpg" />
+          <source type="image/webp" srcset="/assets/images/hero-home.webp" />
           <img src="/assets/images/hero-home.jpg"
                alt="Fresh hydroponic greens growing at Gingerly Farms"
                width="3840" height="1920"
@@ -286,32 +288,44 @@
     <section class="lifestyle-strip" id="lifestyle-strip" aria-label="Coastal Charleston lifestyle photos" style="display:none;">
       <div class="lifestyle-strip__grid">
         <div class="lifestyle-strip__item">
-          <img src="/assets/images/coastal-bridge-cables.jpg"
-               alt="Ravenel Bridge cables and tower lit up at dusk over Charleston Harbor"
-               width="800" height="533" loading="lazy"
-               onload="document.getElementById('lifestyle-strip').style.display='';"
-               onerror="this.closest('.lifestyle-strip__item').remove();" />
+          <picture>
+            <source type="image/webp" srcset="/assets/images/coastal-bridge-cables.webp" />
+            <img src="/assets/images/coastal-bridge-cables.jpg"
+                 alt="Ravenel Bridge cables and tower lit up at dusk over Charleston Harbor"
+                 width="800" height="533" loading="lazy"
+                 onload="document.getElementById('lifestyle-strip').style.display='';"
+                 onerror="this.closest('.lifestyle-strip__item').remove();" />
+          </picture>
         </div>
         <div class="lifestyle-strip__item">
-          <img src="/assets/images/coastal-marsh-waterway.jpg"
-               alt="Lowcountry marsh crab with salt marsh and tidal creek in background"
-               width="800" height="533" loading="lazy"
-               onload="document.getElementById('lifestyle-strip').style.display='';"
-               onerror="this.closest('.lifestyle-strip__item').remove();" />
+          <picture>
+            <source type="image/webp" srcset="/assets/images/coastal-marsh-waterway.webp" />
+            <img src="/assets/images/coastal-marsh-waterway.jpg"
+                 alt="Lowcountry marsh crab with salt marsh and tidal creek in background"
+                 width="800" height="533" loading="lazy"
+                 onload="document.getElementById('lifestyle-strip').style.display='';"
+                 onerror="this.closest('.lifestyle-strip__item').remove();" />
+          </picture>
         </div>
         <div class="lifestyle-strip__item">
-          <img src="/assets/images/coastal-hydro-facility.jpg"
-               alt="Inside the Gingerly Farms hydroponic growing facility with rows of leafy greens"
-               width="800" height="533" loading="lazy"
-               onload="document.getElementById('lifestyle-strip').style.display='';"
-               onerror="this.closest('.lifestyle-strip__item').remove();" />
+          <picture>
+            <source type="image/webp" srcset="/assets/images/coastal-hydro-facility.webp" />
+            <img src="/assets/images/coastal-hydro-facility.jpg"
+                 alt="Inside the Gingerly Farms hydroponic growing facility with rows of leafy greens"
+                 width="800" height="533" loading="lazy"
+                 onload="document.getElementById('lifestyle-strip').style.display='';"
+                 onerror="this.closest('.lifestyle-strip__item').remove();" />
+          </picture>
         </div>
         <div class="lifestyle-strip__item">
-          <img src="/assets/images/coastal-harbor-ship.jpg"
-               alt="Container ship passing through Charleston Harbor at twilight with bridge in background"
-               width="800" height="533" loading="lazy"
-               onload="document.getElementById('lifestyle-strip').style.display='';"
-               onerror="this.closest('.lifestyle-strip__item').remove();" />
+          <picture>
+            <source type="image/webp" srcset="/assets/images/coastal-harbor-ship.webp" />
+            <img src="/assets/images/coastal-harbor-ship.jpg"
+                 alt="Container ship passing through Charleston Harbor at twilight with bridge in background"
+                 width="800" height="533" loading="lazy"
+                 onload="document.getElementById('lifestyle-strip').style.display='';"
+                 onerror="this.closest('.lifestyle-strip__item').remove();" />
+          </picture>
         </div>
       </div>
     </section>
@@ -330,11 +344,14 @@
           <a href="/about.html" class="btn btn-ghost btn-arrow">Meet the Team</a>
         </div>
         <div class="about-teaser__photo" id="about-teaser-photo">
-          <img src="/assets/images/founders-night-fishing.jpg"
-               alt="Gingerly Farms founders casting a net on Charleston Harbor at night"
-               width="800" height="775" loading="lazy"
-               style="object-position: center bottom;"
-               onerror="this.closest('.about-teaser__photo').remove();document.querySelector('.about-teaser--with-image').classList.remove('about-teaser--with-image');" />
+          <picture>
+            <source type="image/webp" srcset="/assets/images/founders-night-fishing.webp" />
+            <img src="/assets/images/founders-night-fishing.jpg"
+                 alt="Gingerly Farms founders casting a net on Charleston Harbor at night"
+                 width="800" height="775" loading="lazy"
+                 style="object-position: center bottom;"
+                 onerror="this.closest('.about-teaser__photo').remove();document.querySelector('.about-teaser--with-image').classList.remove('about-teaser--with-image');" />
+          </picture>
         </div>
       </div>
     </section>

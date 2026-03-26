@@ -116,10 +116,13 @@
             </p>
           </div>
           <div class="hero-split__card">
-            <img src="/assets/images/founders-night-fishing.jpg"
-                 alt="Founders casting a net on Charleston Harbor at night with city lights in the background"
-                 width="800" height="775" loading="eager"
-                 style="object-position: center bottom;" />
+            <picture>
+              <source type="image/webp" srcset="/assets/images/founders-night-fishing.webp" />
+              <img src="/assets/images/founders-night-fishing.jpg"
+                   alt="Founders casting a net on Charleston Harbor at night with city lights in the background"
+                   width="800" height="775" loading="eager"
+                   style="object-position: center bottom;" />
+            </picture>
           </div>
         </div>
       </div>
@@ -163,23 +166,29 @@
 
         <!-- Team photo - hidden until image loads -->
         <div class="team-photo mb-12" id="team-photo" style="display:none;">
-          <img src="/assets/images/founders-night-fishing.jpg"
-               alt="Fulton and Ean, co-founders of Gingerly Farms, casting a net on Charleston Harbor"
-               width="800" height="775" loading="lazy"
-               style="object-position: center bottom;"
-               onload="document.getElementById('team-photo').style.display='';"
-               onerror="this.closest('.team-photo').remove();" />
+          <picture>
+            <source type="image/webp" srcset="/assets/images/founders-night-fishing.webp" />
+            <img src="/assets/images/founders-night-fishing.jpg"
+                 alt="Fulton and Ean, co-founders of Gingerly Farms, casting a net on Charleston Harbor"
+                 width="800" height="775" loading="lazy"
+                 style="object-position: center bottom;"
+                 onload="document.getElementById('team-photo').style.display='';"
+                 onerror="this.closest('.team-photo').remove();" />
+          </picture>
         </div>
 
         <div class="founders-grid">
 
           <div class="founder-card">
             <div class="founder-card__photo">
-              <img src="/assets/images/fulton-headshot.jpg"
-                   alt="Fulton Williams, Co-Founder of Gingerly Farms"
-                   width="600" height="750" loading="lazy"
-                   class="founder-card__img"
-                   onerror="this.remove();" />
+              <picture>
+                <source type="image/webp" srcset="/assets/images/fulton-headshot.webp" />
+                <img src="/assets/images/fulton-headshot.jpg"
+                     alt="Fulton Williams, Co-Founder of Gingerly Farms"
+                     width="600" height="750" loading="lazy"
+                     class="founder-card__img"
+                     onerror="this.remove();" />
+              </picture>
             </div>
             <h3 class="founder-card__name">Fulton Williams</h3>
             <p class="founder-card__role">Horticulture &amp; Growing Operations</p>
@@ -192,11 +201,14 @@
 
           <div class="founder-card">
             <div class="founder-card__photo">
-              <img src="/assets/images/ean-headshot.jpg"
-                   alt="Ean Lawrence, Co-Founder of Gingerly Farms"
-                   width="600" height="750" loading="lazy"
-                   class="founder-card__img"
-                   onerror="this.parentElement.classList.add('pattern-portrait');this.remove();" />
+              <picture>
+                <source type="image/webp" srcset="/assets/images/ean-headshot.webp" />
+                <img src="/assets/images/ean-headshot.jpg"
+                     alt="Ean Lawrence, Co-Founder of Gingerly Farms"
+                     width="600" height="750" loading="lazy"
+                     class="founder-card__img"
+                     onerror="this.parentElement.classList.add('pattern-portrait');this.remove();" />
+              </picture>
             </div>
             <h3 class="founder-card__name">Ean Lawrence</h3>
             <p class="founder-card__role">Systems, Operations &amp; Scaling</p>
